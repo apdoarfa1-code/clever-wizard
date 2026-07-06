@@ -1,0 +1,17 @@
+{
+  "name": "ai-trading-agent",
+  "version": "1.0.0",
+  "description": "AI Trading Agent — ربط حقيقي بالبروكر والتليجرام وعقل AI (Binance/Bybit/MT5 + OpenAI-compatible)",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev",
+    "lint": "node scripts/check.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["trading", "ai", "agent", "telegram", "binance", "mt5", "metatrader", "vercel"],
+  "license": "MIT"
+}

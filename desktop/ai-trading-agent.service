@@ -1,0 +1,37 @@
+[Unit]
+Description=AI Trading Agent — Server
+Documentation=https://github.com/user/ai-trading-agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=apdo
+WorkingDirectory=/home/apdo/Desktop/x egant
+ExecStart=/usr/bin/node /home/apdo/Desktop/x egant/server.js
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=8080
+Environment=HOST=127.0.0.1
+Environment=OPEN_BROWSER=false
+
+# تخفيف الاستهلاك — لا يؤثر على أداء الجهاز
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+CPUWeight=100
+MemoryMax=256M
+
+# الأمان: صلاحيات محدودة
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/apdo/Desktop/x egant
+ProtectHome=false
+
+# إعادة تشغيل ذكية
+RestartForceExitStatus=SIGKILL
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)" stroke="url(#glow)" stroke-width="6"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.06" stroke="#3b82f6" stroke-width="1">
+    <line x1="80" y1="120" x2="432" y2="120"/>
+    <line x1="80" y1="200" x2="432" y2="200"/>
+    <line x1="80" y1="280" x2="432" y2="280"/>
+    <line x1="80" y1="360" x2="432" y2="360"/>
+    <line x1="140" y1="80" x2="140" y2="432"/>
+    <line x1="256" y1="80" x2="256" y2="432"/>
+    <line x1="372" y1="80" x2="372" y2="432"/>
+  </g>
+
+  <!-- Chart line (green going up - bullish) -->
+  <path d="M100,340 L160,300 L210,320 L260,240 L310,200 L360,180 L410,140"
+        fill="none" stroke="url(#chart)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Chart area fill -->
+  <path d="M100,340 L160,300 L210,320 L260,240 L310,200 L360,180 L410,140 L410,420 L100,420 Z"
+        fill="url(#chart)" opacity="0.12"/>
+
+  <!-- Candlestick-like dots -->
+  <circle cx="160" cy="300" r="8" fill="#10b981" opacity="0.8"/>
+  <circle cx="260" cy="240" r="8" fill="#10b981" opacity="0.8"/>
+  <circle cx="360" cy="180" r="8" fill="#10b981" opacity="0.8"/>
+  <circle cx="410" cy="140" r="10" fill="#10b981">
+    <animate attributeName="r" values="10;14;10" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Robot head -->
+  <g transform="translate(256, 180)">
+    <!-- Head circle -->
+    <circle cx="0" cy="0" r="52" fill="url(#glow)" opacity="0.9"/>
+
+    <!-- Eyes -->
+    <circle cx="-16" cy="-6" r="10" fill="#fff">
+      <animate attributeName="r" values="10;11;10" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="16" cy="-6" r="10" fill="#fff">
+      <animate attributeName="r" values="10;11;10" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="-14" cy="-4" r="4" fill="#0f172a"/>
+    <circle cx="18" cy="-4" r="4" fill="#0f172a"/>
+
+    <!-- Smile -->
+    <path d="M-12,12 Q0,24 12,12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Antenna -->
+    <line x1="0" y1="-52" x2="0" y2="-68" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="-72" r="6" fill="#06b6d4">
+      <animate attributeName="fill" values="#06b6d4;#10b981;#06b6d4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- AI text -->
+    <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#fff" opacity="0.9">AI</text>
+  </g>
+
+  <!-- Bottom label -->
+  <text x="256" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="url(#glow)">TRADING</text>
+  <text x="256" y="472" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#64748b">AGENT</text>
+
+  <!-- Bottom accent line -->
+  <rect x="180" y="484" width="152" height="3" rx="1.5" fill="url(#glow)" opacity="0.6"/>
+</svg>
