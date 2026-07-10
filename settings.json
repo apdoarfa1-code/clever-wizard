@@ -1,0 +1,18 @@
+{
+  "DEFAULT_BROKER": "metaapi",
+  "AI_PROVIDER": "custom",
+  "AI_BASE_URL": "https://api.openai.com/v1",
+  "AI_API_KEY": "",
+  "AI_MODEL": "gpt-4o-mini",
+  "AI_TEMPERATURE": "0.2",
+  "MIN_CONFIDENCE": "0.6",
+  "METAAPI_TOKEN": "",
+  "METAAPI_ACCOUNT_ID": "",
+  "AGENT_AUTORUN": "true",
+  "BINANCE_API_KEY": "",
+  "BINANCE_API_SECRET": "",
+  "BINANCE_TESTNET": "false",
+  "BYBIT_API_KEY": "",
+  "BYBIT_API_SECRET": "",
+  "BYBIT_TESTNET": "false"
+}

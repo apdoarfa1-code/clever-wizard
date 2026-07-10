@@ -1,0 +1,20 @@
+{
+  "name": "AI Trading Agent",
+  "short_name": "AI Trading",
+  "description": "وكيل التداول الذكي — AI-powered trading agent",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#030616",
+  "theme_color": "#030616",
+  "icons": [
+    { "src": "desktop/icons/icon_48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "desktop/icons/icon_64.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "desktop/icons/icon_128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "desktop/icons/icon.png", "sizes": "256x256", "type": "image/png" }
+  ],
+  "categories": ["finance", "productivity"]
+}

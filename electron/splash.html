@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>AI Trading Agent</title>
+<style>
+  :root {
+    --bg-0: #030616;
+    --bg-1: #0a1538;
+    --bg-2: #0f1f4a;
+    --grad: linear-gradient(160deg, #030616 0%, #0a1538 40%, #0f1f4a 100%);
+  }
+  html, body {
+    margin: 0; padding: 0; height: 100vh; width: 100vw;
+    background: var(--grad);
+    color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 28px;
+  }
+  .logo {
+    width: 110px; height: 110px;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #06b6d4 100%);
+    border-radius: 28px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 80px rgba(59,130,246,0.6), 0 0 160px rgba(124,58,237,0.3);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  .logo svg { width: 58px; height: 58px; }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+  h1 {
+    margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 3px;
+    background: linear-gradient(90deg, #60a5fa, #818cf8, #22d3ee);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .sub { font-size: 11px; color: #5a6f99; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; }
+  .bar { width: 240px; height: 3px; background: rgba(59,130,246,0.15); border-radius: 3px; overflow: hidden; }
+  .bar::after {
+    content: ''; display: block; height: 100%; width: 40%;
+    background: linear-gradient(90deg, #1e40af, #06b6d4);
+    border-radius: 3px; animation: load 1.2s ease-in-out infinite;
+  }
+  @keyframes load { 0% { transform: translateX(240%); } 100% { transform: translateX(-350%); } }
+  .status { font-size: 11px; color: #5a6f99; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+    </svg>
+  </div>
+  <div>
+    <h1>AI TRADING</h1>
+    <div class="sub" style="text-align:center;margin-top:6px;">AGENT</div>
+  </div>
+  <div class="bar"></div>
+  <div class="status">STARTING ENGINE...</div>
+</body>
+</html>

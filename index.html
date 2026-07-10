@@ -4,594 +4,397 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Trading Agent — وكيل التداول الذكي</title>
-  <meta name="theme-color" content="#05070f">
+  <meta name="theme-color" content="#030616">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="assets/css/dashboard.css">
   <link rel="icon" type="image/png" href="desktop/icons/icon_64.png">
+  <link rel="apple-touch-icon" href="desktop/icons/icon.png">
   <style>
-    /* Splash screen */
     #splash {
       position: fixed; inset: 0; z-index: 9999;
-      background: #05070f;
+      background: var(--grad-deep);
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 24px;
+      align-items: center; justify-content: center; gap: 24px;
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
     #splash.hide { opacity: 0; visibility: hidden; }
     .splash-logo {
-      width: 88px; height: 88px;
+      width: 96px; height: 96px;
       background: var(--grad-primary);
-      border-radius: 22px;
+      border-radius: 24px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 44px;
-      box-shadow: 0 0 60px rgba(99,102,241,0.6), 0 0 120px rgba(139,92,246,0.3);
+      font-size: 48px;
+      box-shadow: 0 0 60px rgba(59,130,246,0.6), 0 0 120px rgba(124,58,237,0.3);
       animation: splashPulse 1.4s ease-in-out infinite;
     }
     @keyframes splashPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(99,102,241,0.6), 0 0 120px rgba(139,92,246,0.3); }
-      50% { transform: scale(1.08); box-shadow: 0 0 80px rgba(99,102,241,0.8), 0 0 160px rgba(139,92,246,0.4); }
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
-    .splash-title {
-      font-size: 22px; font-weight: 800;
-      background: var(--grad-glow);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
-    }
-    .splash-bar {
-      width: 200px; height: 3px;
-      background: rgba(99,102,241,0.15);
-      border-radius: 3px; overflow: hidden;
-    }
-    .splash-bar::after {
-      content: ''; display: block; height: 100%; width: 40%;
-      background: var(--grad-primary);
-      border-radius: 3px;
-      animation: splashLoad 1.2s ease-in-out infinite;
-    }
-    @keyframes splashLoad {
-      0% { transform: translateX(120%); }
-      100% { transform: translateX(-350%); }
-    }
-    .splash-status {
-      font-size: 11px; color: var(--text-muted, #64748b);
-      letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
-    }
+    .splash-title { font-size: 24px; font-weight: 900; font-family: 'Space Grotesk', sans-serif;
+      background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+    .splash-bar { width: 220px; height: 3px; background: rgba(59,130,246,0.15); border-radius: 3px; overflow: hidden; }
+    .splash-bar::after { content: ''; display: block; height: 100%; width: 40%; background: var(--grad-primary); border-radius: 3px; animation: splashLoad 1.2s ease-in-out infinite; }
+    @keyframes splashLoad { 0% { transform: translateX(220%); } 100% { transform: translateX(-350%); } }
+    .splash-status { font-size: 11px; color: var(--text-muted, #5a6f99); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
   </style>
 </head>
 <body>
 
-<!-- =============== SPLASH SCREEN =============== -->
+<!-- Splash -->
 <div id="splash">
-  <div class="splash-logo">🤖</div>
-  <div class="splash-title">AI TRADING AGENT</div>
+  <div class="splash-logo">⚡</div>
+  <div class="splash-title">AI TRADING</div>
   <div class="splash-bar"></div>
-  <div class="splash-status" id="splashStatus">جاري التحميل...</div>
+  <div class="splash-status" id="splashStatus">INITIALIZING...</div>
 </div>
 
-<!-- =============== SIDEBAR =============== -->
-<aside class="sidebar">
-  <div class="sidebar-brand">
-    <div class="logo">🤖</div>
-    <h1>AI TRADING</h1>
-  </div>
+<!-- Cursor glow + scroll progress -->
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
 
-  <nav class="sidebar-nav">
-    <div class="nav-section">
-      <div class="nav-section-title">الرئيسية</div>
-      <div class="nav-item active" data-page="dashboard">
-        <span class="icon">📊</span><span>الداش بورد</span>
-      </div>
-      <div class="nav-item" data-page="agent">
-        <span class="icon">🧠</span><span>العقل الذكي</span>
-      </div>
-    </div>
-
-    <div class="nav-section">
-      <div class="nav-section-title">التداول</div>
-      <div class="nav-item" data-page="markets">
-        <span class="icon">📈</span><span>السوق</span>
-      </div>
-      <div class="nav-item" data-page="trades">
-        <span class="icon">📋</span><span>الصفقات</span>
-      </div>
-    </div>
-
-    <div class="nav-section">
-      <div class="nav-section-title">النظام</div>
-      <div class="nav-item" data-page="settings">
-        <span class="icon">⚙️</span><span>الإعدادات</span>
-      </div>
-      <div class="nav-item" data-page="logs">
-        <span class="icon">📝</span><span>السجل</span>
-      </div>
-    </div>
-  </nav>
-
-  <div class="sidebar-footer">
-    <div class="sidebar-status">
-      <div class="status-dot" id="statusDot"></div>
-      <span>الخادم يعمل</span>
+<!-- ===== TOP NAVIGATION ===== -->
+<nav class="topnav">
+  <div class="topnav-brand" onclick="App.navigate('dashboard')">
+    <div class="logo" data-icon="zap" data-icon-size="22"></div>
+    <div class="brand-text">
+      <span class="name">AI TRADING</span>
+      <span class="sub" data-i18n="brand_sub">AGENT</span>
     </div>
   </div>
-</aside>
 
-<!-- =============== MAIN =============== -->
+  <div class="topnav-links">
+    <div class="topnav-link active" data-page="dashboard"><span class="icon" data-icon="dashboard" data-icon-size="16"></span><span data-i18n="nav_dashboard">الداش بورد</span></div>
+    <div class="topnav-link" data-page="agent"><span class="icon" data-icon="brain" data-icon-size="16"></span><span data-i18n="nav_agent">العقل الذكي</span></div>
+    <div class="topnav-link" data-page="markets"><span class="icon" data-icon="chart" data-icon-size="16"></span><span data-i18n="nav_markets">السوق</span></div>
+    <div class="topnav-link" data-page="trades"><span class="icon" data-icon="list" data-icon-size="16"></span><span data-i18n="nav_trades">الصفقات</span></div>
+    <div class="topnav-link" data-page="download"><span class="icon" data-icon="download" data-icon-size="16"></span><span data-i18n="nav_download">تحميل</span></div>
+    <div class="topnav-link" data-page="settings"><span class="icon" data-icon="settings" data-icon-size="16"></span><span data-i18n="nav_settings">الإعدادات</span></div>
+    <div class="topnav-link" data-page="about"><span class="icon" data-icon="user" data-icon-size="16"></span><span data-i18n="nav_about">من نحن</span></div>
+  </div>
+
+  <div class="topnav-actions">
+    <div class="status-pill" id="topStatus"><div class="status-dot-mini"></div><span data-i18n="online">متصل</span></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="App.setLang('ar')">ع</button>
+      <button class="lang-btn" onclick="App.setLang('en')">EN</button>
+    </div>
+    <button class="icon-btn" onclick="App.toggleTheme()" id="themeBtn" title="Theme" data-icon="moon" data-icon-size="18"></button>
+    <button class="icon-btn" onclick="App.loadHealth()" title="Refresh" data-icon="refresh" data-icon-size="18"></button>
+  </div>
+</nav>
+
 <div class="main">
 
-  <!-- ---- Header ---- -->
-  <header class="header">
-    <div class="header-right">
-      <div class="header-search">
-        <span>🔍</span>
-        <input type="text" placeholder="بحث سريع..." id="globalSearch">
-      </div>
-      <span id="modeBadge"></span>
-    </div>
-    <div class="header-left">
-      <button class="header-btn" id="themeToggle" title="تبديل الثيم">🌓</button>
-      <button class="header-btn" onclick="App.loadHealth()" title="تحديث الاتصالات">🔄</button>
-    </div>
-  </header>
-
-  <!-- =============== PAGE: DASHBOARD =============== -->
+  <!-- ===== DASHBOARD ===== -->
   <div class="page active" id="page-dashboard">
+    <div class="conn-cards mb-20" id="connStatus"></div>
 
-    <!-- اتصالات -->
-    <div class="conn-cards mb-20" id="connStatus">
-      <div class="conn-card disconnected"><div class="conn-dot"></div><div><div class="conn-name">جاري التحميل...</div></div></div>
+    <!-- Fast trade bar -->
+    <div class="fast-trade-bar reveal">
+      <span style="font-weight:700;font-size:13px;">⚡ <span data-i18n="fast_trade">تداول سريع</span>:</span>
+      <input class="form-input" id="fastSymbol" placeholder="BTCUSDT" value="BTCUSDT" style="width:130px;">
+      <input class="form-input" id="fastQty" type="number" placeholder="0.001" value="0.001" step="0.0001" style="width:110px;">
+      <button class="btn btn-success btn-sm" onclick="Dashboard.fastTrade('BUY')">▲ BUY</button>
+      <button class="btn btn-danger btn-sm" onclick="Dashboard.fastTrade('SELL')">▼ SELL</button>
+      <button class="btn btn-primary btn-sm" onclick="Dashboard.batchTrade()">📦 <span data-i18n="batch10">10 صفقات</span></button>
+      <button class="btn btn-ghost btn-sm" onclick="Dashboard.closeAll()">✕ <span data-i18n="close_all">إغلاق الكل</span></button>
     </div>
 
-    <!-- بطاقات -->
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-header"><span class="card-label">الرصيد</span><div class="card-icon blue">💰</div></div>
-        <div class="card-value" id="cardBalance">—</div>
-        <div class="card-sub" id="cardAvailable">متاح: —</div>
-      </div>
-      <div class="card">
-        <div class="card-header"><span class="card-label">الربح/الخسارة</span><div class="card-icon green">📈</div></div>
-        <div class="card-value" id="cardPnl">—</div>
-        <div class="card-sub">غير محقّق</div>
-      </div>
-      <div class="card">
-        <div class="card-header"><span class="card-label">صفقات مفتوحة</span><div class="card-icon yellow">📊</div></div>
-        <div class="card-value" id="cardOpen">0</div>
-        <div class="card-sub">الآن</div>
-      </div>
-      <div class="card">
-        <div class="card-header"><span class="card-label">نسبة الفوز</span><div class="card-icon purple">🏆</div></div>
-        <div class="card-value" id="cardWinRate">0%</div>
-        <div class="card-sub">إجمالي: <span id="cardTotalTrades">0</span> صفقة</div>
-      </div>
-      <div class="card">
-        <div class="card-header"><span class="card-label">PnL إجمالي</span><div class="card-icon green">💹</div></div>
-        <div class="card-value" id="cardTotalPnl">0</div>
-        <div class="card-sub">جميع الصفقات المغلقة</div>
-      </div>
+    <div class="cards-grid reveal">
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="balance">الرصيد</span><div class="card-icon blue">💰</div></div><div class="card-value" id="cardBalance">—</div><div class="card-sub" id="cardAvailable">—</div></div>
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="pnl">الربح/الخسارة</span><div class="card-icon green">📈</div></div><div class="card-value" id="cardPnl">—</div><div class="card-sub" data-i18n="unrealized">غير محقّق</div></div>
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="open_positions">صفقات مفتوحة</span><div class="card-icon yellow">📊</div></div><div class="card-value" id="cardOpen">0</div><div class="card-sub" data-i18n="now">الآن</div></div>
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="win_rate">نسبة الفوز</span><div class="card-icon purple">🏆</div></div><div class="card-value" id="cardWinRate">0%</div><div class="card-sub"><span data-i18n="total">إجمالي</span>: <span id="cardTotalTrades">0</span></div></div>
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="total_pnl">PnL إجمالي</span><div class="card-icon cyan">💹</div></div><div class="card-value" id="cardTotalPnl">0</div><div class="card-sub" data-i18n="closed_trades">الصفقات المغلقة</div></div>
     </div>
 
-    <!-- رسم بياني + صفقات مفتوحة -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;" class="reveal">
       <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">📈 الرسم البياني</div>
-          <div class="panel-actions">
-            <select class="form-input" id="chartSymbolSelect" style="width:auto;padding:4px 10px;font-size:12px;">
-              <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option><option>BNBUSDT</option><option>XRPUSDT</option><option>DOGEUSDT</option><option>ADAUSDT</option>
-            </select>
-          </div>
+        <div class="panel-header"><div class="panel-title">📈 <span data-i18n="chart">الرسم البياني</span></div>
+          <select class="form-input" id="chartSymbolSelect" style="width:auto;padding:4px 10px;font-size:12px;">
+            <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option><option>BNBUSDT</option><option>XRPUSDT</option><option>DOGEUSDT</option>
+          </select>
         </div>
-        <div class="panel-body no-pad">
-          <div class="chart-container" id="chartContainer">
-            <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);">جاري تحميل الرسم البياني...</div>
-          </div>
-        </div>
+        <div class="panel-body no-pad"><div class="chart-container" id="chartContainer"></div></div>
       </div>
-
       <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">📊 الصفقات المفتوحة</div>
-          <button class="btn btn-sm btn-ghost" id="refreshAccountBtn">🔄 تحديث</button>
-        </div>
-        <div class="panel-body no-pad">
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>الزوج</th><th>الاتجاه</th><th>الحجم</th><th>الدخول</th><th>السوق</th><th>PnL</th><th></th></tr></thead>
-              <tbody id="positionsTable">
-                <tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px;">جاري التحميل...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <div class="panel-header"><div class="panel-title">📊 <span data-i18n="open_positions">صفقات مفتوحة</span></div><button class="btn btn-sm btn-ghost" onclick="App.loadAccount()">🔄</button></div>
+        <div class="panel-body no-pad"><div class="table-wrap"><table>
+          <thead><tr><th data-i18n="symbol">الزوج</th><th data-i18n="side">الاتجاه</th><th data-i18n="size">الحجم</th><th data-i18n="entry">الدخول</th><th>Mark</th><th>PnL</th><th></th></tr></thead>
+          <tbody id="positionsTable"><tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px;" data-i18n="loading">جاري التحميل...</td></tr></tbody>
+        </table></div></div>
       </div>
     </div>
 
-    <!-- قرارات + سجل -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">🧠 قرارات العقل</div>
-        </div>
-        <div class="panel-body" id="decisionsContainer">
-          <p style="text-align:center;color:var(--text-muted);padding:24px;">جاري التحميل...</p>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">📝 السجل</div>
-        </div>
-        <div class="panel-body no-pad" style="max-height:300px;overflow-y:auto;" id="logsContainer">
-          <p style="text-align:center;color:var(--text-muted);padding:24px;">جاري التحميل...</p>
-        </div>
-      </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
+      <div class="panel"><div class="panel-header"><div class="panel-title">🧠 <span data-i18n="decisions">قرارات العقل</span></div></div><div class="panel-body" id="decisionsContainer"></div></div>
+      <div class="panel"><div class="panel-header"><div class="panel-title">📝 <span data-i18n="logs">السجل</span></div></div><div class="panel-body no-pad" style="max-height:300px;overflow-y:auto;" id="logsContainer"></div></div>
     </div>
-
   </div>
 
-  <!-- =============== PAGE: AGENT =============== -->
+  <!-- ===== AGENT ===== -->
   <div class="page" id="page-agent">
-
-    <div class="agent-status">
+    <div class="agent-status reveal">
       <div class="agent-status-icon stopped" id="agentStatusIcon">⏸</div>
-      <div class="agent-status-info">
-        <h3 id="agentStatusTitle">العقل متوقف</h3>
-        <p id="agentStatusDetail">اضغط تشغيل لبدء التحليل</p>
-      </div>
+      <div class="agent-status-info"><h3 id="agentStatusTitle" data-i18n="agent_stopped">العقل متوقف</h3><p id="agentStatusDetail"></p></div>
       <div id="agentConfigInfo"></div>
       <div class="agent-controls">
-        <button class="btn btn-primary btn-lg" id="agentRunBtn">▶️ تشغيل دورة واحدة</button>
-        <button class="btn btn-success" id="agentStartBtn">🔄 تشغيل تلقائي</button>
-        <button class="btn btn-danger" id="agentStopBtn">⏹ إيقاف</button>
+        <button class="btn btn-primary btn-lg" id="agentRunBtn">▶️ <span data-i18n="run_once">دورة واحدة</span></button>
+        <button class="btn btn-success" id="agentStartBtn">🔄 <span data-i18n="auto_run">تلقائي</span></button>
+        <button class="btn btn-danger" id="agentStopBtn">⏹ <span data-i18n="stop">إيقاف</span></button>
       </div>
     </div>
-
-    <!-- تحليل يدوي -->
-    <div class="panel mb-20">
-      <div class="panel-header">
-        <div class="panel-title">🔍 تحليل يدوي</div>
-      </div>
-      <div class="panel-body">
-        <div style="display:flex;gap:12px;align-items:flex-end;">
-          <div class="form-group" style="flex:1;margin-bottom:0;">
-            <label class="form-label">رمز الزوج</label>
-            <input class="form-input" id="analyzeSymbolInput" placeholder="BTCUSDT" value="BTCUSDT">
-          </div>
-          <button class="btn btn-primary btn-lg" id="agentAnalyzeBtn">🧠 تحليل</button>
-        </div>
-      </div>
+    <div class="panel mb-20 reveal">
+      <div class="panel-header"><div class="panel-title">🔍 <span data-i18n="manual_analysis">تحليل يدوي</span></div></div>
+      <div class="panel-body"><div style="display:flex;gap:12px;align-items:flex-end;">
+        <div class="form-group" style="flex:1;margin-bottom:0;"><label class="form-label" data-i18n="symbol">الزوج</label><input class="form-input" id="analyzeSymbolInput" value="BTCUSDT"></div>
+        <button class="btn btn-primary btn-lg" id="agentAnalyzeBtn">🧠 <span data-i18n="analyze">تحليل</span></button>
+      </div></div>
     </div>
-
-    <!-- قرارات -->
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">🧠 آخر القرارات</div>
-      </div>
-      <div class="panel-body" id="agentDecisionsList">
-        <p style="text-align:center;color:var(--text-muted);padding:30px;">لا توجد قرارات بعد</p>
-      </div>
-    </div>
-
-    <!-- سجل العقل -->
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">📝 سجل العمليات</div>
-      </div>
-      <div class="panel-body no-pad" style="max-height:400px;overflow-y:auto;" id="agentLogsList">
-      </div>
-    </div>
-
+    <div class="panel reveal"><div class="panel-header"><div class="panel-title">🧠 <span data-i18n="decisions">آخر القرارات</span></div></div><div class="panel-body" id="agentDecisionsList"></div></div>
   </div>
 
-  <!-- =============== PAGE: MARKETS =============== -->
+  <!-- ===== MARKETS ===== -->
   <div class="page" id="page-markets">
-    <div class="cards-grid mb-20" id="marketCards">
-    </div>
-    <div class="panel">
-      <div class="panel-header"><div class="panel-title">📈 الرسم البياني</div></div>
-      <div class="panel-body no-pad">
-        <div class="chart-container" id="marketChartContainer" style="height:500px;"></div>
-      </div>
-    </div>
+    <div class="cards-grid mb-20 reveal" id="marketCards"></div>
+    <div class="panel reveal"><div class="panel-header"><div class="panel-title">📈 <span data-i18n="chart">الرسم البياني</span></div></div><div class="panel-body no-pad"><div class="chart-container" id="marketChartContainer" style="height:500px;"></div></div></div>
   </div>
 
-  <!-- =============== PAGE: TRADES =============== -->
+  <!-- ===== TRADES ===== -->
   <div class="page" id="page-trades">
-    <div class="cards-grid mb-20">
-      <div class="card"><div class="card-header"><span class="card-label">إجمالي الصفقات</span><div class="card-icon blue">📋</div></div><div class="card-value" id="tStatTotal">0</div></div>
-      <div class="card"><div class="card-header"><span class="card-label">مفتوحة</span><div class="card-icon green">📊</div></div><div class="card-value" id="tStatOpen">0</div></div>
-      <div class="card"><div class="card-header"><span class="card-label">نسبة الفوز</span><div class="card-icon purple">🏆</div></div><div class="card-value" id="tStatWin">0%</div></div>
-      <div class="card"><div class="card-header"><span class="card-label">PnL</span><div class="card-icon green">💹</div></div><div class="card-value" id="tStatPnl">0</div></div>
+    <div class="cards-grid mb-20 reveal">
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="total_trades">إجمالي الصفقات</span><div class="card-icon blue">📋</div></div><div class="card-value" id="tStatTotal">0</div></div>
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="open_positions">مفتوحة</span><div class="card-icon green">📊</div></div><div class="card-value" id="tStatOpen">0</div></div>
+      <div class="card"><div class="card-header"><span class="card-label" data-i18n="win_rate">نسبة الفوز</span><div class="card-icon purple">🏆</div></div><div class="card-value" id="tStatWin">0%</div></div>
+      <div class="card"><div class="card-header"><span class="card-label">PnL</span><div class="card-icon cyan">💹</div></div><div class="card-value" id="tStatPnl">0</div></div>
     </div>
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">📋 كل الصفقات</div>
-        <div class="panel-actions">
-          <button class="btn btn-sm btn-ghost" id="refreshTradesBtn">🔄 تحديث</button>
-          <button class="btn btn-sm btn-danger" id="resetBtn">🗑 إعادة تعيين</button>
+    <div class="panel reveal"><div class="panel-header"><div class="panel-title">📋 <span data-i18n="all_trades">كل الصفقات</span></div>
+      <div class="panel-actions"><button class="btn btn-sm btn-ghost" onclick="Dashboard.loadTrades()">🔄</button><button class="btn btn-sm btn-danger" onclick="Dashboard.resetData()">🗑</button></div></div>
+      <div class="panel-body no-pad"><div class="table-wrap"><table>
+        <thead><tr><th data-i18n="date">التاريخ</th><th data-i18n="symbol">الزوج</th><th data-i18n="side">الاتجاه</th><th>Price</th><th data-i18n="size">الحجم</th><th data-i18n="status">الحالة</th><th>PnL</th></tr></thead>
+        <tbody id="tradesTable"></tbody>
+      </table></div></div></div>
+  </div>
+
+  <!-- ===== DOWNLOAD ===== -->
+  <div class="page" id="page-download">
+    <div class="panel reveal" style="text-align:center;padding:40px 20px;">
+      <div style="font-size:48px;margin-bottom:16px;" data-icon="pack" data-icon-size="48"></div>
+      <h2 style="font-size:28px;font-weight:900;font-family:'Sora',sans-serif;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;" data-i18n="dl_title">حزمة التثبيت</h2>
+      <p style="color:var(--text-secondary);margin-bottom:8px;" data-i18n="dl_desc">اختر نظامك لتحميل الحزمة الجاهزة للتشغيل على أي جهاز</p>
+      <div class="download-grid">
+        <div class="download-card" onclick="App.downloadPackage('linux')">
+          <div class="download-icon linux" data-icon="linux" data-icon-size="32"></div>
+          <div class="download-name">Linux</div>
+          <div class="download-size">.tar.gz · ~3 MB</div>
+          <button class="btn btn-primary btn-sm w-full">⬇️ <span data-i18n="download">تحميل</span></button>
+        </div>
+        <div class="download-card" onclick="App.downloadPackage('windows')">
+          <div class="download-icon windows" data-icon="windows" data-icon-size="32"></div>
+          <div class="download-name">Windows</div>
+          <div class="download-size">.zip · ~4 MB</div>
+          <button class="btn btn-primary btn-sm w-full">⬇️ <span data-i18n="download">تحميل</span></button>
+        </div>
+        <div class="download-card" onclick="App.downloadPackage('mac')">
+          <div class="download-icon mac" data-icon="apple" data-icon-size="32"></div>
+          <div class="download-name">macOS</div>
+          <div class="download-size">.tar.gz · ~3 MB</div>
+          <button class="btn btn-primary btn-sm w-full">⬇️ <span data-i18n="download">تحميل</span></button>
+        </div>
+        <div class="download-card" onclick="App.downloadPackage('android')">
+          <div class="download-icon android" data-icon="android" data-icon-size="32"></div>
+          <div class="download-name">Android</div>
+          <div class="download-size">.apk.zip · ~3 MB</div>
+          <button class="btn btn-primary btn-sm w-full">⬇️ <span data-i18n="download">تحميل</span></button>
         </div>
       </div>
-      <div class="panel-body no-pad">
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>التاريخ</th><th>الزوج</th><th>الاتجاه</th><th>السعر</th><th>الحجم</th><th>الحالة</th><th>PnL</th></tr></thead>
-            <tbody id="tradesTable"></tbody>
-          </table>
-        </div>
-      </div>
+      <p class="settings-note" style="justify-content:center;margin-top:24px;">ℹ️ <span data-i18n="dl_note">كل الحزم جاهزة للتشغيل. الأندرويد يعمل كـ PWA — افتح ملف التثبيت المرفق في Chrome Android ثم Add to Home screen.</span></p>
     </div>
   </div>
 
-  <!-- =============== PAGE: SETTINGS =============== -->
+  <!-- ===== SETTINGS ===== -->
   <div class="page" id="page-settings">
 
-    <!-- البروكر -->
-    <div class="settings-section" data-section="broker" data-section-name="البروكر">
-      <div class="settings-section-header"><h3>🏦 البروكر والتداول</h3><span class="arrow">▼</span></div>
-      <div class="settings-section-body">
-        <div class="settings-grid">
-          <div class="form-group">
-            <label class="form-label">البروكر الافتراضي</label>
-            <select class="form-input" id="setBroker">
-              <option value="paper">تداول وهمي (Paper)</option>
-              <option value="binance">Binance</option>
-              <option value="bybit">Bybit</option>
-              <option value="metaapi">MetaTrader 5</option>
-            </select>
+    <div class="settings-section open" data-section="broker">
+      <div class="settings-section-header open"><h3>🏦 <span data-i18n="broker_settings">إعدادات البروكر</span></h3><span class="arrow">▼</span></div>
+      <div class="settings-section-body open">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;">
+
+          <!-- Paper -->
+          <div class="broker-card" id="brokerCard-paper">
+            <div class="broker-header"><div class="broker-logo paper">📝</div><div><div class="broker-name">Paper Trading</div><div class="broker-desc" data-i18n="paper_desc">تداول وهمي آمن — بدون مفاتيح</div></div></div>
+            <div class="form-group"><label class="form-label" data-i18n="start_balance">الرصيد الابتدائي</label><input class="form-input" id="paperBalance" type="number" value="10000"></div>
+            <button class="btn btn-primary btn-sm w-full" onclick="Settings.selectBroker('paper')">✓ <span data-i18n="select">اختيار</span></button>
           </div>
-          <div class="form-group">
-            <label class="form-label">وضع التنفيذ</label>
-            <select class="form-input" id="setMode">
-              <option value="paper">📝 وهمي (Paper)</option>
-              <option value="live">🔴 حقيقي (Live)</option>
-            </select>
-            <div class="settings-note">⚠️ Live يتطلب كلمة سر + مسؤوليتك على رأسك</div>
+
+          <!-- Binance -->
+          <div class="broker-card" id="brokerCard-binance">
+            <div class="broker-header"><div class="broker-logo binance">B</div><div><div class="broker-name">Binance</div><div class="broker-desc">Spot + Futures · Testnet مدعوم</div></div></div>
+            <div class="form-group"><label class="form-label">API Key</label><input class="form-input" id="setBinanceKey" placeholder="Binance API Key"></div>
+            <div class="form-group"><label class="form-label">API Secret</label><input class="form-input" id="setBinanceSecret" type="password" placeholder="API Secret"></div>
+            <div class="form-group"><label class="form-label">Testnet</label><select class="form-input" id="setBinanceTestnet"><option value="false" data-i18n="no_real">لا (حقيقي)</option><option value="true" data-i18n="yes_test">نعم (تجريبي)</option></select></div>
+            <div style="display:flex;gap:8px;"><button class="btn btn-primary btn-sm" style="flex:1;" onclick="Settings.selectBroker('binance')">✓ <span data-i18n="select">اختيار</span></button><button class="btn btn-ghost btn-sm" onclick="Settings.testConnection('broker')">🔗</button></div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Binance API Key</label>
-            <input class="form-input" id="setBinanceKey" placeholder="أدخل API Key">
+
+          <!-- Bybit -->
+          <div class="broker-card" id="brokerCard-bybit">
+            <div class="broker-header"><div class="broker-logo bybit">Y</div><div><div class="broker-name">Bybit</div><div class="broker-desc">V5 API · Testnet مدعوم</div></div></div>
+            <div class="form-group"><label class="form-label">API Key</label><input class="form-input" id="setBybitKey" placeholder="Bybit API Key"></div>
+            <div class="form-group"><label class="form-label">API Secret</label><input class="form-input" id="setBybitSecret" type="password" placeholder="API Secret"></div>
+            <div class="form-group"><label class="form-label">Testnet</label><select class="form-input" id="setBybitTestnet"><option value="false" data-i18n="no_real">لا (حقيقي)</option><option value="true" data-i18n="yes_test">نعم (تجريبي)</option></select></div>
+            <div style="display:flex;gap:8px;"><button class="btn btn-primary btn-sm" style="flex:1;" onclick="Settings.selectBroker('bybit')">✓ <span data-i18n="select">اختيار</span></button><button class="btn btn-ghost btn-sm" onclick="Settings.testConnection('broker')">🔗</button></div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Binance API Secret</label>
-            <input class="form-input" id="setBinanceSecret" type="password" placeholder="أدخل API Secret">
+
+          <!-- MetaApi -->
+          <div class="broker-card" id="brokerCard-metaapi">
+            <div class="broker-header"><div class="broker-logo metaapi">MT5</div><div><div class="broker-name">MetaTrader 5</div><div class="broker-desc">عبر MetaApi Cloud · حقيقي/ديمو</div></div></div>
+            <div class="form-group"><label class="form-label">MetaApi Token</label><input class="form-input" id="setMetaApiToken" type="password" placeholder="metaapi.cloud token"></div>
+            <div class="form-group"><label class="form-label">Account ID</label><input class="form-input" id="setMetaApiAccountId" placeholder="MT5 Account ID"></div>
+            <div class="form-group"><label class="form-label" data-i18n="account_type">نوع الحساب</label>
+              <select class="form-input" id="setMetaApiMode">
+                <option value="real" data-i18n="real_account">حساب حقيقي (Live)</option>
+                <option value="demo" data-i18n="demo_account">حساب تجريبي (Demo)</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label" data-i18n="mt5_login">MT5 Login</label><input class="form-input" id="setMetaApiLogin" placeholder="رقم حساب MT5 (اختياري إن كان مختلف عن Account ID)"></div>
+            <div style="display:flex;gap:8px;">
+              <button class="btn btn-primary btn-sm" style="flex:1;" onclick="Settings.selectBroker('metaapi')">✓ <span data-i18n="select">اختيار</span></button>
+              <button class="btn btn-ghost btn-sm" onclick="Settings.testConnection('broker')">🔗</button>
+            </div>
+            <div class="settings-note" data-i18n="metaapi_note">ℹ️ لربط MT5: أنشئ حساب MetaApi على metaapi.cloud واحصل على Token، ثم أضف حساب MT5 (حقيقي أو تجريبي) وانسخ الـ Account ID.</div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Binance Testnet</label>
-            <select class="form-input" id="setBinanceTestnet">
-              <option value="false">لا (حقيقي)</option>
-              <option value="true">نعم (تجريبي)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Bybit API Key</label>
-            <input class="form-input" id="setBybitKey" placeholder="أدخل API Key">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Bybit API Secret</label>
-            <input class="form-input" id="setBybitSecret" type="password" placeholder="أدخل API Secret">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Bybit Testnet</label>
-            <select class="form-input" id="setBybitTestnet">
-              <option value="false">لا (حقيقي)</option>
-              <option value="true">نعم (تجريبي)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">MetaApi Token</label>
-            <input class="form-input" id="setMetaApiToken" type="password" placeholder="metaapi.cloud token">
-          </div>
-          <div class="form-group">
-            <label class="form-label">MetaApi Account ID</label>
-            <input class="form-input" id="setMetaApiAccountId" placeholder="account ID من MetaApi">
-          </div>
-        </div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <button class="btn btn-primary">💾 حفظ إعدادات البروكر</button>
-          <button class="btn btn-ghost" id="testBrokerBtn">🔗 فحص الاتصال</button>
-          <button class="btn btn-danger" id="enableLiveBtn">🔓 فتح وضع Live</button>
-          <input class="form-input" id="livePassword" type="password" placeholder="كلمة سر Live" style="width:200px;">
         </div>
       </div>
     </div>
 
-    <!-- AI -->
-    <div class="settings-section" data-section="ai" data-section-name="العقل">
-      <div class="settings-section-header"><h3>🧠 العقل الذكي (AI)</h3><span class="arrow">▼</span></div>
+    <!-- AI Brain -->
+    <div class="settings-section" data-section="ai">
+      <div class="settings-section-header"><h3>🧠 <span data-i18n="ai_settings">إعدادات العقل الذكي</span></h3><span class="arrow">▼</span></div>
       <div class="settings-section-body">
         <div class="settings-grid">
-          <div class="form-group">
-            <label class="form-label">المزوّد</label>
-            <select class="form-input" id="setAiProvider">
-              <option value="openai">OpenAI</option>
-              <option value="groq">Groq</option>
-              <option value="openrouter">OpenRouter</option>
-              <option value="deepseek">DeepSeek</option>
-              <option value="ollama">محلي (Ollama)</option>
-              <option value="custom">مخصص</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Base URL</label>
-            <input class="form-input" id="setAiBaseUrl" placeholder="https://api.openai.com/v1">
-          </div>
-          <div class="form-group">
-            <label class="form-label">API Key</label>
-            <input class="form-input" id="setAiKey" type="password" placeholder="sk-...">
-          </div>
-          <div class="form-group">
-            <label class="form-label">الموديل</label>
-            <input class="form-input" id="setAiModel" placeholder="gpt-4o-mini">
-          </div>
-          <div class="form-group">
-            <label class="form-label">درجة الحرارة (0-1)</label>
-            <input class="form-input" id="setAiTemp" type="number" step="0.1" min="0" max="1" value="0.2">
-          </div>
-          <div class="form-group">
-            <label class="form-label">أقل مستوى ثقة للتنفيذ (0-1)</label>
-            <input class="form-input" id="setMinConf" type="number" step="0.1" min="0" max="1" value="0.6">
-          </div>
+          <div class="form-group"><label class="form-label" data-i18n="provider">المزوّد</label>
+            <select class="form-input" id="setAiProvider"><option value="openai">OpenAI</option><option value="groq">Groq</option><option value="openrouter">OpenRouter</option><option value="deepseek">DeepSeek</option><option value="custom" data-i18n="custom">مخصص</option></select></div>
+          <div class="form-group"><label class="form-label">Base URL</label><input class="form-input" id="setAiBaseUrl" placeholder="https://api.openai.com/v1"></div>
+          <div class="form-group"><label class="form-label">API Key</label><input class="form-input" id="setAiKey" type="password" placeholder="sk-..."></div>
+          <div class="form-group"><label class="form-label" data-i18n="model">الموديل</label><input class="form-input" id="setAiModel" placeholder="gpt-4o-mini"></div>
+          <div class="form-group"><label class="form-label" data-i18n="temperature">درجة الحرارة</label><input class="form-input" id="setAiTemp" type="number" step="0.1" min="0" max="1" value="0.2"></div>
+          <div class="form-group"><label class="form-label" data-i18n="min_conf">أقل مستوى ثقة</label><input class="form-input" id="setMinConf" type="number" step="0.1" min="0" max="1" value="0.6"></div>
         </div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <button class="btn btn-primary">💾 حفظ إعدادات AI</button>
-          <button class="btn btn-ghost" id="testAiBtn">🔗 فحص الاتصال</button>
-        </div>
-        <div class="settings-note">💡 لدى OpenAI: Base URL = https://api.openai.com/v1 | Groq: https://api.groq.com/openai/v1 | OpenRouter: https://openrouter.ai/api/v1</div>
+        <div style="display:flex;gap:12px;margin-top:16px;"><button class="btn btn-primary" onclick="Settings.saveSection('ai')">💾 <span data-i18n="save">حفظ</span></button><button class="btn btn-ghost" onclick="Settings.testConnection('ai')">🔗 <span data-i18n="test">فحص</span></button></div>
       </div>
     </div>
 
     <!-- Telegram -->
-    <div class="settings-section" data-section="telegram" data-section-name="التليجرام">
-      <div class="settings-section-header"><h3>📱 التليجرام</h3><span class="arrow">▼</span></div>
+    <div class="settings-section" data-section="telegram">
+      <div class="settings-section-header"><h3>📱 <span data-i18n="telegram_settings">إعدادات التليجرام</span></h3><span class="arrow">▼</span></div>
       <div class="settings-section-body">
         <div class="settings-grid">
-          <div class="form-group">
-            <label class="form-label">Bot Token</label>
-            <input class="form-input" id="setTgToken" placeholder="123456:ABC-DEF...">
-            <div class="settings-note">📌 احصل عليه من @BotFather في التليجرام</div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Chat ID</label>
-            <input class="form-input" id="setTgChatId" placeholder="رقم أو @username">
-            <div class="settings-note">📌 أرسل رسالة للبوت ثم روح t.me/getmyid_bot</div>
-          </div>
+          <div class="form-group"><label class="form-label">Bot Token</label><input class="form-input" id="setTgToken" placeholder="من @BotFather"></div>
+          <div class="form-group"><label class="form-label">Chat ID</label><input class="form-input" id="setTgChatId" placeholder="من @getmyid_bot"></div>
         </div>
         <div style="display:flex;gap:12px;margin-top:16px;">
-          <button class="btn btn-primary">💾 حفظ إعدادات التليجرام</button>
-          <button class="btn btn-ghost" id="testTgBtn">🔗 فحص الاتصال</button>
-          <button class="btn btn-success" id="sendTestTgBtn">📨 إرسال رسالة اختبار</button>
+          <button class="btn btn-primary" onclick="Settings.saveSection('telegram')">💾 <span data-i18n="save">حفظ</span></button>
+          <button class="btn btn-ghost" onclick="Settings.testConnection('telegram')">🔗 <span data-i18n="test">فحص</span></button>
+          <button class="btn btn-success" onclick="Settings.sendTestTg()">📨 <span data-i18n="send_test">إرسال اختبار</span></button>
         </div>
       </div>
     </div>
 
-    <!-- إدارة المخاطر -->
-    <div class="settings-section" data-section="risk" data-section-name="المخاطر">
-      <div class="settings-section-header"><h3>🛡️ إدارة المخاطر</h3><span class="arrow">▼</span></div>
+    <!-- Risk -->
+    <div class="settings-section" data-section="risk">
+      <div class="settings-section-header"><h3>🛡️ <span data-i18n="risk_settings">إدارة المخاطر</span></h3><span class="arrow">▼</span></div>
       <div class="settings-section-body">
         <div class="settings-grid">
-          <div class="form-group">
-            <label class="form-label">حجم الصفقة (% من الرصيد)</label>
-            <input class="form-input" id="setRiskPos" type="number" step="0.01" value="0.02">
-            <div class="settings-note">0.02 = 2% من الرصيد في كل صفقة</div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">حد الخسارة اليومي (%)</label>
-            <input class="form-input" id="setRiskDailyLoss" type="number" step="0.01" value="0.05">
-            <div class="settings-note">يتوقف تلقائياً لو وصلت الخسارة للحد</div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">أقصى عدد صفقات مفتوحة</label>
-            <input class="form-input" id="setRiskMaxOpen" type="number" value="5">
-          </div>
-          <div class="form-group">
-            <label class="form-label">وقف خسارة افتراضي (%)</label>
-            <input class="form-input" id="setRiskSl" type="number" step="0.01" value="0.01">
-          </div>
-          <div class="form-group">
-            <label class="form-label">جنى أرباح افتراضي (%)</label>
-            <input class="form-input" id="setRiskTp" type="number" step="0.01" value="0.02">
-          </div>
+          <div class="form-group"><label class="form-label" data-i18n="pos_size">حجم الصفقة (%)</label><input class="form-input" id="setRiskPos" type="number" step="0.01" value="0.02"></div>
+          <div class="form-group"><label class="form-label" data-i18n="daily_loss">حد الخسارة اليومي (%)</label><input class="form-input" id="setRiskDailyLoss" type="number" step="0.01" value="0.05"></div>
+          <div class="form-group"><label class="form-label" data-i18n="max_open">أقصى صفقات مفتوحة</label><input class="form-input" id="setRiskMaxOpen" type="number" value="10"></div>
+          <div class="form-group"><label class="form-label" data-i18n="default_sl">وقف خسارة افتراضي (%)</label><input class="form-input" id="setRiskSl" type="number" step="0.01" value="0.01"></div>
+          <div class="form-group"><label class="form-label" data-i18n="default_tp">جنى أرباح افتراضي (%)</label><input class="form-input" id="setRiskTp" type="number" step="0.01" value="0.02"></div>
         </div>
-        <button class="btn btn-primary" style="margin-top:16px;">💾 حفظ إعدادات المخاطر</button>
+        <button class="btn btn-primary" style="margin-top:16px;" onclick="Settings.saveSection('risk')">💾 <span data-i18n="save">حفظ</span></button>
       </div>
     </div>
 
-    <!-- الأزواج والجدولة -->
-    <div class="settings-section" data-section="symbols" data-section-name="الأزواج">
-      <div class="settings-section-header"><h3>📊 الأزواج والجدولة</h3><span class="arrow">▼</span></div>
-      <div class="settings-section-body">
+    <!-- Bot behavior -->
+    <div class="settings-section open" data-section="bot">
+      <div class="settings-section-header open"><h3>🤖 <span data-i18n="bot_settings">إعدادات البوت الذكي</span></h3><span class="arrow">▼</span></div>
+      <div class="settings-section-body open">
         <div class="settings-grid">
-          <div class="form-group">
-            <label class="form-label">الأزواج المراقبة (مفصولة بفاصلة)</label>
-            <input class="form-input" id="setSymbols" value="BTCUSDT,ETHUSDT,SOLUSDT">
-          </div>
-          <div class="form-group">
-            <label class="form-label">الفريم الزمني</label>
-            <select class="form-input" id="setTimeframe">
-              <option value="1m">1 دقيقة</option>
-              <option value="5m">5 دقائق</option>
-              <option value="15m" selected>15 دقيقة</option>
-              <option value="1h">ساعة</option>
-              <option value="4h">4 ساعات</option>
-              <option value="1d">يوم</option>
-            </select>
-          </div>
+          <div class="form-group"><label class="form-label" data-i18n="symbols">الأزواج (مفصولة بفاصلة)</label><input class="form-input" id="setSymbols" value="BTCUSDT,ETHUSDT,SOLUSDT"></div>
+          <div class="form-group"><label class="form-label" data-i18n="timeframe">الفريم الزمني</label><select class="form-input" id="setTimeframe"><option value="1m">1 دقيقة</option><option value="5m">5 دقائق</option><option value="15m" selected>15 دقيقة</option><option value="1h">ساعة</option><option value="4h">4 ساعات</option><option value="1d">يوم</option></select></div>
+          <div class="form-group"><label class="form-label" data-i18n="loop_interval">فترة الدورة (ثانية)</label><input class="form-input" id="setLoopInterval" type="number" value="60"></div>
+          <div class="form-group"><label class="form-label" data-i18n="max_batch">أقصى صفقات بالدفعة</label><input class="form-input" id="setMaxBatch" type="number" value="10"></div>
+          <div class="form-group"><label class="form-label" data-i18n="scalp_durations">مدد الصفقات السريعة (5s,10s,15s)</label><input class="form-input" id="setScalpDurations" value="5s,10s,15s"></div>
+          <div class="form-group"><label class="form-label" data-i18n="tick_ms">تردد المتابعة (ms) — 250 لحظي</label><input class="form-input" id="setTickMs" type="number" value="1500" step="250"></div>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;margin-top:16px;">
-          <div class="toggle-wrap">
-            <div class="toggle" id="toggleAutorun"></div>
-            <span class="toggle-label">تشغيل تلقائي (كل 60 ثانية)</span>
-          </div>
-          <button class="btn btn-primary" style="margin-right:auto;">💾 حفظ</button>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:16px;flex-wrap:wrap;">
+          <div class="toggle-wrap"><div class="toggle" id="toggleAutorun"></div><span class="toggle-label" data-i18n="auto_run_loop">تشغيل تلقائي</span></div>
+          <div class="toggle-wrap"><div class="toggle active" id="toggleTgNotify"></div><span class="toggle-label" data-i18n="tg_notify">إشعارات تليجرام</span></div>
+          <div class="toggle-wrap"><div class="toggle active" id="toggleSlTp"></div><span class="toggle-label" data-i18n="force_sltp">SL/TP إجباري</span></div>
+          <div class="toggle-wrap"><div class="toggle active" id="toggleStrictConfirm"></div><span class="toggle-label" data-i18n="strict_confirm">التأكيد الصارم (لا صفقات عشوائية)</span></div>
+          <div class="toggle-wrap"><div class="toggle active" id="toggleAutoClose"></div><span class="toggle-label" data-i18n="auto_close">إغلاق تلقائي بعد المدة</span></div>
         </div>
+        <button class="btn btn-primary" style="margin-top:16px;" onclick="Settings.saveSection('bot')">💾 <span data-i18n="save">حفظ</span></button>
       </div>
     </div>
 
-    <!-- متقدم -->
-    <div class="settings-section" data-section="advanced" data-section-name="متقدم">
-      <div class="settings-section-header"><h3>🔧 متقدم</h3><span class="arrow">▼</span></div>
+    <!-- Advanced -->
+    <div class="settings-section" data-section="advanced">
+      <div class="settings-section-header"><h3>🔧 <span data-i18n="advanced">متقدم</span></h3><span class="arrow">▼</span></div>
       <div class="settings-section-body">
-        <div style="display:flex;gap:12px;">
-          <button class="btn btn-danger" id="resetDataBtn">🗑 حذف كل البيانات</button>
-          <button class="btn btn-ghost" onclick="App.loadHealth()">🔄 تحديث كل الاتصالات</button>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-danger" onclick="Dashboard.resetData()">🗑 <span data-i18n="reset_data">حذف البيانات</span></button>
+          <button class="btn btn-ghost" onclick="App.loadHealth()">🔄 <span data-i18n="refresh_all">تحديث الاتصالات</span></button>
         </div>
-        <div class="settings-note mt-12">⚠️ حذف البيانات يحذف الصفقات والقرارات والسجل — ما يحذفش الإعدادات.</div>
       </div>
     </div>
-
   </div>
 
-  <!-- =============== PAGE: LOGS =============== -->
-  <div class="page" id="page-logs">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">📝 سجل العمليات الكامل</div>
-        <button class="btn btn-sm btn-ghost" onclick="Dashboard.loadLogs();AgentPanel.loadLogs();">🔄 تحديث</button>
+  <!-- ===== ABOUT ===== -->
+  <div class="page" id="page-about">
+    <div class="about-hero reveal">
+      <div class="about-avatar">AA</div>
+      <div class="about-name">Abdelrahman Arfa</div>
+      <div class="about-title">عبدالرحمن عرفة — <span data-i18n="developer">مطوّر البرمجيات</span></div>
+      <div class="about-contacts">
+        <a class="contact-card" href="tel:01029913210"><div class="icon">📞</div><div><div class="label">Phone</div><div class="value">01029913210</div></div></a>
+        <a class="contact-card" href="mailto:apdoarfa1@gmail.com"><div class="icon">✉️</div><div><div class="label">Email</div><div class="value">apdoarfa1@gmail.com</div></div></a>
+        <a class="contact-card" href="#" onclick="return false"><div class="icon">💻</div><div><div class="label" data-i18n="role">Role</div><div class="value">Founder & Dev</div></div></a>
       </div>
-      <div class="panel-body no-pad" style="max-height:70vh;overflow-y:auto;" id="fullLogsContainer">
+    </div>
+    <div class="panel reveal" style="max-width:800px;margin:0 auto;">
+      <div class="panel-header"><div class="panel-title">✨ <span data-i18n="project_info">عن المشروع</span></div></div>
+      <div class="panel-body">
+        <p style="color:var(--text-secondary);line-height:1.9;" data-i18n="about_text">
+          AI Trading Agent — منصة تداول ذكية متكاملة بُنيت بشغف. تجمع بين الذكاء الاصطناعي، الربط الحقيقي بالبروكرات، وإدارة مخاطر احترافية — كل ذلك في واجهة واحدة خارقة.
+        </p>
+        <div style="display:flex;gap:20px;margin-top:20px;flex-wrap:wrap;">
+          <div style="text-align:center;flex:1;min-width:100px;"><div style="font-size:24px;font-weight:900;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">100%</div><div class="text-sm text-muted" data-i18n="real_conn">ربط حقيقي</div></div>
+          <div style="text-align:center;flex:1;min-width:100px;"><div style="font-size:24px;font-weight:900;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">4+</div><div class="text-sm text-muted" data-i18n="brokers_count">بروكرات</div></div>
+          <div style="text-align:center;flex:1;min-width:100px;"><div style="font-size:24px;font-weight:900;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">24/7</div><div class="text-sm text-muted">Auto Trade</div></div>
+        </div>
+        <p style="text-align:center;color:var(--text-muted);font-size:12px;margin-top:24px;">© 2026 — <span data-i18n="created_by">إنشاء وتطوير</span> Abdelrahman Arfa</p>
       </div>
     </div>
   </div>
 
 </div>
 
-<!-- =============== SCRIPTS =============== -->
+<!-- Scripts -->
 <script src="assets/js/app.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/agent-panel.js"></script>
 <script src="assets/js/settings.js"></script>
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/effects.js"></script>
 <script>
-  // صفحة السوق
-  document.querySelector('.nav-item[data-page="markets"]')?.addEventListener('click', () => {
-    loadMarketPage();
+  // Apply SVG icons after DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.Icons) Icons.apply();
+    // Re-apply بعد تبديل اللغة أو الصفحة
+    window.addEventListener('reveal:refresh', () => Icons.apply?.());
   });
-  document.querySelector('.nav-item[data-page="trades"]')?.addEventListener('click', () => {
-    App.loadAccount();
-    Dashboard.loadTrades();
-  });
-  document.querySelector('.nav-item[data-page="logs"]')?.addEventListener('click', () => {
-    Dashboard.loadLogs();
-  });
-
-  async function loadMarketPage() {
-    const symbols = (await App.api('/api/config')).config?.WATCH_SYMBOLS?.split(',').map(s=>s.trim()) || ['BTCUSDT','ETHUSDT','SOLUSDT'];
-    const cardsEl = document.getElementById('marketCards');
-    if (!cardsEl) return;
-    cardsEl.innerHTML = symbols.map(s => `<div class="card" id="mkt-${s}"><div class="card-label">${s}</div><div class="card-value" style="font-size:20px">...</div></div>`).join('');
-    for (const s of symbols) {
-      try {
-        const t = await App.api(`/api/market/ticker?symbol=${s}`);
-        const el = document.getElementById(`mkt-${s}`);
-        if (el) el.innerHTML = `<div class="card-label">${t.symbol}</div><div class="card-value" style="font-size:22px">${t.price}</div><div class="card-sub ${t.change >= 0 ? 'up' : 'down'}">${t.change >= 0 ? '▲' : '▼'} ${t.change.toFixed(2)}% | حجم: ${t.volume}</div>`;
-      } catch {}
-    }
-    // chart
-    const sym = symbols[0];
-    const theme = App.state.theme === 'dark' ? 1 : 2;
-    const chartEl = document.getElementById('marketChartContainer');
-    if (chartEl) chartEl.innerHTML = `<iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tv&symbol=BINANCE:${sym}&interval=15&theme=${theme}&style=1&locale=ar&hide_side_toolbar=0&allow_symbol_change=true" allowtransparency="true"></iframe>`;
-  }
 </script>
-
 </body>
 </html>

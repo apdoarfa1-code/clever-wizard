@@ -1,32 +1,54 @@
 #!/usr/bin/env bash
 # =============================================================
-#  AI Trading Agent — Launcher (بدون تيرمنال)
-#  يدوس على الأيقونة → يتأكد الخادم شغال → يفتح المتصفح
+#  AI Trading Agent — Fallback launcher
+#  يستخدم Electron إن وُجد, وإلا يفتح المتصفح في وضع App.
 # =============================================================
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 APP_DIR="$(dirname "$SCRIPT_DIR")"
+cd "$APP_DIR"
 PORT=8080
 URL="http://127.0.0.1:${PORT}"
+APP_NAME="AI Trading Agent"
 
-# التأكد إن الخادم شغّال بصمت في الخلفية
-if ! pgrep -f "node ${APP_DIR}/server.js" > /dev/null 2>&1; then
-    # تشغيل السيرفر في الخلفية بدون أي مخرجات
-    cd "$APP_DIR"
-    nohup node server.js > /dev/null 2>&1 &
-    disown
-    # مهلة قصيرة لرفع السيرفر
-    for i in 1 2 3 4 5 6 7 8 9 10; do
-        if curl -s -o /dev/null "$URL/api/health" 2>/dev/null; then break; fi
-        sleep 0.3
+# محاولة Electron أولاً
+if [ -x "$APP_DIR/node_modules/.bin/electron" ]; then
+    # نشغّل السيرفر في الخلفية ثم Electron
+    if ! curl -s -o /dev/null --max-time 1 "$URL/api/health" 2>/dev/null; then
+        OPEN_BROWSER=false AGENT_AUTORUN=false PORT=$PORT nohup node server.js >/dev/null 2>&1 &
+        echo $! > "$APP_DIR/data/.server.pid"
+        disown
+        for _ in $(seq 1 30); do
+            curl -s -o /dev/null --max-time 1 "$URL/api/health" 2>/dev/null && break
+            sleep 0.3
+        done
+    fi
+    exec "$APP_DIR/node_modules/.bin/electron" electron/main.js
+fi
+
+# Fallback: متصفح في وضع app
+start_server_bg() {
+    if ! curl -s -o /dev/null --max-time 2 "$URL/api/health" 2>/dev/null; then
+        OPEN_BROWSER=false AGENT_AUTORUN=false nohup node server.js >/dev/null 2>&1 &
+        echo $! > "$APP_DIR/data/.server.pid"
+        disown
+        for _ in $(seq 1 30); do
+            curl -s -o /dev/null --max-time 1 "$URL/api/health" 2>/dev/null && return 0
+            sleep 0.3
+        done
+    fi
+}
+open_app_browser() {
+    for bin in google-chrome google-chrome-stable chromium chromium-browser; do
+        if command -v "$bin" &>/dev/null; then
+            "$bin" --app="$URL" --window-name="$APP_NAME" --window-size=1440,900 \
+                --user-data-dir="$HOME/.ai-trading-agent-app" \
+                --no-first-run --no-default-browser-check --disable-extensions >/dev/null 2>&1 &
+            return
+        fi
     done
-fi
-
-# فتح المتصفح الافتراضي
-if command -v xdg-open &>/dev/null; then
-    xdg-open "$URL" >/dev/null 2>&1
-elif command -v gio &>/dev/null; then
-    gio open "$URL" >/dev/null 2>&1
-elif command -v sensible-browser &>/dev/null; then
-    sensible-browser "$URL" >/dev/null 2>&1
-fi
+    xdg-open "$URL" >/dev/null 2>&1 &
+}
+start_server_bg
+open_app_browser
+sleep 3
+wait

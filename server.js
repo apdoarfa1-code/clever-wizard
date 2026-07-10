@@ -8,6 +8,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const ROOT = __dirname;
 const config = require('./lib/config');
@@ -36,16 +37,22 @@ const MIME = {
   '.woff2': 'font/woff2',
 };
 
-// ---- تشغيل تلقائي للتليجرام commands كل 15 ثانية ----
+// ---- تشغيل تلقائي للتليجرام commands كل 30 ثانية (أخف) ----
 setInterval(() => {
-  telegram.processCommands().catch(e => console.error('[TG poll]', e.message));
-}, 15000);
+  if (config.isConfigured('TELEGRAM_BOT_TOKEN')) {
+    telegram.processCommands().catch(() => {});
+  }
+}, 30000);
 
 // ---- بدء حلقة العقل لو autorun = true ----
 if (config.getBool('AGENT_AUTORUN', false)) {
   console.log('[server] حلقة العقل التلقائية مفعّلة');
   agent.startLoop();
 }
+
+// ---- cache للملفات الثابتة (يقلل قراءة القرص) ----
+const staticCache = new Map();
+const STATIC_CACHE_MAX = 50;
 
 // ---- إنشاء السيرفر ----
 const server = http.createServer((req, res) => {
@@ -63,7 +70,12 @@ const server = http.createServer((req, res) => {
       routes.handleRequest(method, url, req.headers, body).then(result => {
         if (!result) { res.writeHead(404); res.end('Not Found'); return; }
         res.writeHead(result.status, result.headers);
-        res.end(result.body);
+        // دعم binary (Buffer) أو string
+        if (result.binary && Buffer.isBuffer(result.data)) {
+          res.end(result.data);
+        } else {
+          res.end(result.body);
+        }
       }).catch(e => {
         console.error('[server] API error:', e.message);
         res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -72,9 +84,8 @@ const server = http.createServer((req, res) => {
       return;
     }
 
-    // Static files
+    // Static files (with cache + gzip للأداء الخفيف)
     let filePath = url === '/' ? '/index.html' : url;
-    // أمن: منع directory traversal
     const safePath = path.normalize(filePath).replace(/^(\.\.[\/\\])+/, '');
     const fullPath = path.join(ROOT, safePath);
 
@@ -84,6 +95,19 @@ const server = http.createServer((req, res) => {
 
     const ext = path.extname(fullPath).toLowerCase();
     const contentType = MIME[ext] || 'application/octet-stream';
+    const cacheable = ext !== '.html';
+
+    // تحقق من الكاش أولاً
+    if (cacheable && staticCache.has(fullPath)) {
+      const cached = staticCache.get(fullPath);
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=3600',
+        'Content-Encoding': 'gzip',
+      });
+      res.end(cached);
+      return;
+    }
 
     fs.readFile(fullPath, (err, data) => {
       if (err) {
@@ -91,11 +115,36 @@ const server = http.createServer((req, res) => {
         else { res.writeHead(500); res.end('Server Error'); }
         return;
       }
-      res.writeHead(200, {
-        'Content-Type': contentType,
-        'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=3600',
-      });
-      res.end(data);
+
+      // gzip للنصوص الكبيرة (CSS/JS/HTML)
+      const shouldGzip = ['.html', '.css', '.js', '.json', '.svg'].includes(ext) && data.length > 1024;
+      const acceptGzip = (req.headers['accept-encoding'] || '').includes('gzip');
+
+      if (shouldGzip && acceptGzip) {
+        zlib.gzip(data, (e, compressed) => {
+          if (e) {
+            res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=3600' });
+            res.end(data);
+            return;
+          }
+          // خزّن في الكاش
+          if (cacheable && staticCache.size < STATIC_CACHE_MAX) {
+            staticCache.set(fullPath, compressed);
+          }
+          res.writeHead(200, {
+            'Content-Type': contentType,
+            'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=3600',
+            'Content-Encoding': 'gzip',
+          });
+          res.end(compressed);
+        });
+      } else {
+        res.writeHead(200, {
+          'Content-Type': contentType,
+          'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=3600',
+        });
+        res.end(data);
+      }
     });
   });
 });

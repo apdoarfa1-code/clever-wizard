@@ -1,17 +1,76 @@
 {
   "name": "ai-trading-agent",
   "version": "1.0.0",
-  "description": "AI Trading Agent — ربط حقيقي بالبروكر والتليجرام وعقل AI (Binance/Bybit/MT5 + OpenAI-compatible)",
+  "description": "AI Trading Agent — Electron desktop app + web dashboard",
   "private": true,
   "type": "commonjs",
+  "main": "electron/main.js",
   "scripts": {
-    "dev": "vercel dev",
-    "start": "vercel dev",
-    "lint": "node scripts/check.js"
+    "dev": "node server.js",
+    "web": "node server.js",
+    "start": "electron electron/main.js",
+    "electron": "electron electron/main.js",
+    "lint": "node scripts/check.js",
+    "build": "electron-builder",
+    "build:linux": "electron-builder --linux",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:android": "node scripts/build-apk.js",
+    "package:linux": "node lib/packager.js linux",
+    "package:windows": "node lib/packager.js windows",
+    "package:mac": "node lib/packager.js mac",
+    "package:android": "node scripts/build-apk.js"
   },
-  "engines": {
-    "node": ">=18"
+  "engines": { "node": ">=18" },
+  "keywords": ["trading", "ai", "agent", "telegram", "binance", "mt5", "metatrader", "electron", "desktop"],
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
   },
-  "keywords": ["trading", "ai", "agent", "telegram", "binance", "mt5", "metatrader", "vercel"],
-  "license": "MIT"
+  "build": {
+    "appId": "com.arfa.ai-trading-agent",
+    "productName": "AI Trading Agent",
+    "directories": { "output": "release" },
+    "files": [
+      "electron/**/*",
+      "lib/**/*",
+      "assets/**/*",
+      "api/**/*",
+      "server.js",
+      "index.html",
+      "manifest.json",
+      "desktop/icons/**/*",
+      ".env.example"
+    ],
+    "asar": true,
+    "linux": {
+      "target": [
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb", "arch": ["x64"] }
+      ],
+      "category": "Finance",
+      "icon": "desktop/icons/icon.png",
+      "maintainer": "Abdelrahman Arfa <apdoarfa1@gmail.com>"
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "desktop/icons/icon.png"
+    },
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["x64", "arm64"] }],
+      "category": "public.app-category.finance",
+      "icon": "desktop/icons/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AI Trading Agent"
+    }
+  }
 }
