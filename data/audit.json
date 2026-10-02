@@ -1,0 +1,62 @@
+[
+  {
+    "ts": "2026-08-13T07:26:07.106Z",
+    "module": "RESTORE",
+    "action": "recovered runtime state from 4s ago",
+    "severity": "INFO"
+  },
+  {
+    "ts": "2026-08-13T07:26:07.106Z",
+    "module": "STARTUP",
+    "action": "session restored (0 open positions)",
+    "severity": "INFO"
+  },
+  {
+    "ts": "2026-08-13T07:26:07.106Z",
+    "module": "WATCHDOG",
+    "action": "started",
+    "severity": "INFO"
+  },
+  {
+    "ts": "2026-08-13T07:26:07.107Z",
+    "module": "BOOT",
+    "action": "System boot complete",
+    "severity": "INFO"
+  },
+  {
+    "ts": "2026-08-13T07:26:37.152Z",
+    "module": "WATCHDOG",
+    "action": "module server heartbeat lost (31s)",
+    "severity": "CRITICAL"
+  },
+  {
+    "ts": "2026-08-13T07:26:37.152Z",
+    "module": "RECOVERY",
+    "action": "no recovery function for server",
+    "severity": "WARN"
+  },
+  {
+    "ts": "2026-08-13T08:26:08.051Z",
+    "module": "BACKUP",
+    "action": "2 files backed up (hourly)",
+    "severity": "INFO"
+  },
+  {
+    "ts": "2026-08-13T08:26:12.343Z",
+    "module": "VALIDATION",
+    "action": "hourly stress: 5/5 passed",
+    "severity": "INFO"
+  },
+  {
+    "ts": "2026-08-13T08:30:42.262Z",
+    "module": "WATCHDOG",
+    "action": "module risk heartbeat lost (38s)",
+    "severity": "CRITICAL"
+  },
+  {
+    "ts": "2026-08-13T08:30:46.244Z",
+    "module": "RECOVERY",
+    "action": "no recovery function for risk",
+    "severity": "WARN"
+  }
+]

@@ -70,10 +70,57 @@ const AgentPanel = {
 
   async startLoop() {
     try {
-      await App.api('/api/agent/start', { method: 'POST', body: { intervalMs: 60000 } });
-      App.toast('تم تشغيل العقل تلقائياً (كل 60 ثانية)', 'success');
+      await App.api('/api/agent/start', { method: 'POST', body: { intervalMs: parseInt(document.getElementById('setLoopInterval')?.value) * 1000 || 60000 } });
+      App.toast(App.state.lang === 'ar' ? 'تم تشغيل العقل تلقائياً' : 'Agent auto-trade enabled', 'success');
       App.loadAgentStatus();
     } catch {}
+  },
+
+  async scalpBatch() {
+    const symbol = (document.getElementById('setScalpSymbol')?.value || 'BTCUSDT').toUpperCase();
+    const qty = +(document.getElementById('setScalpQty')?.value || 0.001);
+    const count = +(document.getElementById('setScalpCount')?.value || 10);
+    const duration = +(document.getElementById('setScalpDuration')?.value || 10);
+    const sel = document.getElementById('setScalpSide')?.value || 'BOTH';
+    if (!symbol || !qty) {
+      const msg = (App.state.lang === 'ar') ? 'أدخل الزوج والحجم' : 'Enter symbol + size';
+      App.toast(msg, 'warn');
+      return;
+    }
+    App.toast(`⚡ ${count} scalps on ${symbol}...`, 'info');
+    try {
+      const t0 = Date.now();
+      if (sel === 'BOTH') {
+        const half = Math.floor(count / 2);
+        const [r1, r2] = await Promise.all([
+          App.api('/api/scalp-batch', { method: 'POST', body: { symbol, side: 'BUY', qty, count: half, durationSec: duration } }),
+          App.api('/api/scalp-batch', { method: 'POST', body: { symbol, side: 'SELL', qty, count: count - half, durationSec: duration } }),
+        ]);
+        App.toast(`✅ ${(r1.opened + r2.opened)}/${count} scalps (${Date.now() - t0}ms)`, 'success');
+      } else {
+        const r = await App.api('/api/scalp-batch', { method: 'POST', body: { symbol, side: sel, qty, count, durationSec: duration } });
+        App.toast(`✅ ${r.opened}/${r.requested} — ${r.latency}ms`, 'success');
+      }
+      App.loadAccount();
+      AgentPanel.loadLogs();
+    } catch (e) {}
+  },
+
+  async scalpOne() {
+    const symbol = (document.getElementById('setScalpSymbol')?.value || 'BTCUSDT').toUpperCase();
+    const qty = +(document.getElementById('setScalpQty')?.value || 0.001);
+    const duration = +(document.getElementById('setScalpDuration')?.value || 10);
+    if (!symbol || !qty) { App.toast('أدخل الزوج والحجم', 'warn'); return; }
+    App.toast(`⚡ سكالب سريع على ${symbol} ...`, 'info');
+    try {
+      const r = await App.api('/api/scalp', {
+        method: 'POST',
+        body: { symbol, side: 'BUY', qty, durationSec: duration },
+      });
+      if (r.ok) App.toast(`✅ SCALP ${symbol} @ ${r.price} (SL=${r.sl?.toFixed(2)} TP=${r.tp?.toFixed(2)})`, 'success');
+      else App.toast(`❌ ${r.error || 'فشل'}`, 'error');
+      App.loadAccount();
+    } catch (e) {}
   },
 
   async stopLoop() {

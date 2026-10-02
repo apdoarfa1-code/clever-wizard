@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#00ff41"/><stop offset="100%" stop-color="#0a0c0d"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+    </filter>
+  </defs>
+  <!-- Background (dark = real icon background) -->
+  <rect width="512" height="512" rx="64" fill="#0a0c0d" stroke="#00ff41" stroke-width="6"/>
+
+  <!-- Glow ring -->
+  <path d="M 85 160 L 85 352 L 256 427 L 427 352 L 427 160 L 256 85 Z" fill="none" stroke="#00ff41" stroke-width="4" opacity="0.5"/>
+  <text x="256" y="200" font-family="'JetBrains Mono','Courier New',monospace" font-size="52" font-weight="900" fill="#00ff41" text-anchor="middle" letter-spacing="-2" filter="url(#glow)">x/ROOT</text>
+  <text x="256" y="260" font-family="'JetBrains Mono','Courier New',monospace" font-size="28" font-weight="700" fill="#00bb32" text-anchor="middle" letter-spacing="4">TERMINAL</text>
+  <text x="256" y="340" font-family="'JetBrains Mono','Courier New',monospace" font-size="16" fill="#00661e" text-anchor="middle" letter-spacing="2">⚡ AI TRADING AGENT</text>
+  <text x="256" y="410" font-family="monospace" font-size="12" fill="#003311" text-anchor="middle" letter-spacing="1">ABDELRAHMAN ARFA</text>
+</svg>

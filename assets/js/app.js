@@ -16,6 +16,13 @@ const App = {
       brand_sub: 'AGENT', nav_dashboard: 'الداش بورد', nav_agent: 'العقل الذكي', nav_markets: 'السوق',
       nav_trades: 'الصفقات', nav_download: 'تحميل', nav_settings: 'الإعدادات', nav_about: 'من نحن',
       online: 'متصل', offline: 'غير متصل', fast_trade: 'تداول سريع', batch10: '10 صفقات', close_all: 'إغلاق الكل',
+      login: 'دخول', logout: 'خروج', login_sub: 'وكيل التداول الذكي — تسجيل الدخول',
+      username: 'اسم المستخدم', password: 'كلمة المرور', login_hint: 'البيانات الافتراضية: 101 / 102',
+      scalp_panel: 'محرك الصفقات السريعة (Scalping)', scalp_one: 'سكالب واحد', scalp_batch: 'سكالب دفعة',
+      scalp_note: 'المحرك يفتح صفقات لحظية مع SL/TP تلقائي، ويغلق بعد المدة المحددة. سرعته < 3 ث في التنفيذ.',
+      scalp_durations: 'مدد الصفقات السريعة (5s,10s,15s)', auto_close: 'إغلاق تلقائي بعد المدة',
+      strict_confirm: 'التأكيد الصارم (لا صفقات عشوائية)', tick_ms: 'تردد المتابعة (ms) — 250 لحظي',
+      duration: 'المدة (ث)',
       balance: 'الرصيد', pnl: 'الربح/الخسارة', unrealized: 'غير محقّق', open_positions: 'صفقات مفتوحة', now: 'الآن',
       win_rate: 'نسبة الفوز', total: 'إجمالي', total_pnl: 'PnL إجمالي', closed_trades: 'الصفقات المغلقة',
       chart: 'الرسم البياني', symbol: 'الزوج', side: 'الاتجاه', size: 'الحجم', entry: 'الدخول',
@@ -67,26 +74,110 @@ const App = {
   },
 
   async init() {
-    this.setSplashStatus('CONNECTING...');
+    this.setSplashStatus('INIT');
     this.setTheme(this.state.theme);
     this.setLang(this.state.lang);
     this.bindNav();
-    this.setSplashStatus('CHECKING INTERNET...');
-    await this.checkInternet();
-    this.setSplashStatus('LOADING...');
-    await Promise.all([this.loadHealth(), this.loadAccount(), this.loadAgentStatus()]);
+    this.bindToggles();
     Dashboard.init();
     AgentPanel.init();
     Settings.init();
-    this.bindToggles();
-    this.setSplashStatus('READY ✦');
-    setTimeout(() => this.hideSplash(), 500);
+    // Run heavy backend loads in background (don't block UI)
+    setTimeout(() => this.deferredLoad(), 300);
+  },
+
+  async deferredLoad() {
+    try { await this.checkInternet(); } catch {}
+    try { await Promise.all([this.loadHealth(), this.loadAccount(), this.loadAgentStatus()]); } catch {}
+    this.setSplashStatus('READY');
+    try { this.hideSplash(); } catch {}
     this.startConnectivityMonitor();
-    // تحديث تلقائي
+    this.initMagicUI();
+    // Faster refresh interval + parallel scheduling
     this.state.refreshInterval = setInterval(async () => {
-      await Promise.all([this.loadAccount(), this.loadAgentStatus()]);
-      if (this.state.currentPage === 'dashboard') { Dashboard.loadTrades(); Dashboard.loadDecisions(); }
-    }, 12000);
+      const tasks = [this.loadAccount(), this.loadAgentStatus()];
+      if (this.state.currentPage === 'dashboard') {
+        tasks.push(Promise.resolve(Dashboard.loadTrades()));
+        tasks.push(Promise.resolve(Dashboard.loadDecisions()));
+        tasks.push(Promise.resolve(Dashboard.loadProCards()));
+        tasks.push(Promise.resolve(this.refreshTickerMarquee()));
+      }
+      await Promise.all(tasks);
+    }, 4000);
+  },
+
+  initMagicUI() {
+    // Word rotate (cycling)
+    const wr = document.getElementById('wordRotate');
+    if (wr) {
+      const words = wr.querySelectorAll('.word-rotate-word');
+      let i = 0;
+      setInterval(() => {
+        words.forEach(w => w.classList.remove('active'));
+        words[(++i) % words.length].classList.add('active');
+      }, 2800);
+    }
+    // Spotlight cards: track mouse x/y for each .spotlight element
+    document.querySelectorAll('.spotlight').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+        card.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
+      });
+    });
+    // Reveal on scroll + initial
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .blur-fade').forEach(el => io.observe(el));
+    // Initial marquee (8 top cryptos)
+    this.refreshTickerMarquee();
+    // Live WebSocket for sub-second price updates
+    this.connectWS();
+  },
+
+  connectWS() {
+    try {
+      const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+      const ws = new WebSocket(`${proto}://${location.host}/`);
+      ws.onopen = () => { console.log('[WS] connected'); };
+      ws.onmessage = (ev) => {
+        try {
+          const m = JSON.parse(ev.data);
+          if (m.type === 'trade' && m.symbol) {
+            const el = document.getElementById(`live-${m.symbol}`);
+            if (el) el.textContent = '$' + (+m.price).toLocaleString('en', {maximumFractionDigits: 2});
+            // Update live prices map
+            if (!this._prices) this._prices = {};
+            this._prices[m.symbol] = m.price;
+          }
+        } catch {}
+      };
+      ws.onclose = () => { setTimeout(() => this.connectWS(), 3000); };
+      ws.onerror = () => {};
+    } catch {}
+  },
+
+  refreshTickerMarquee() {
+    const track = document.getElementById('tickerMarquee');
+    if (!track) return;
+    const symbols = ['BTCUSDT','ETHUSDT','SOLUSDT','BNBUSDT','XRPUSDT','ADAUSDT','DOGEUSDT','AVAXUSDT','DOTUSDT','LINKUSDT','MATICUSDT','LTCUSDT','NEARUSDT','APTUSDT','ARBUSDT','OPUSDT'];
+    const top8 = symbols.slice(0, 8);
+    // Fetch prices in parallel, build marquee (twice for seamless loop)
+    Promise.all(top8.map(s => this.api(`/api/market/ticker?symbol=${s}`).catch(() => null))).then(results => {
+      const valid = results.filter(r => r && r.price);
+      if (!valid.length) {
+        track.innerHTML = `<span class="marquee-item">⚡ AI Trading Agent — جاري التحميل...</span>`.repeat(8);
+        return;
+      }
+      const items = valid.map(r => `<span class="marquee-item"><b style="color:var(--secondary)">${r.symbol}</b> $${(+r.price).toLocaleString('en', {maximumFractionDigits: 2})} <span style="color:${r.change >= 0 ? 'var(--green)' : 'var(--danger)'}">${r.change >= 0 ? '+' : ''}${(+r.change).toFixed(2)}%</span></span>`).join('');
+      track.innerHTML = items + items; // duplicated for seamless loop
+    });
   },
 
   setTheme(theme) {
@@ -123,17 +214,26 @@ const App = {
 
   navigate(page) {
     this.state.currentPage = page;
+    // activate link
     document.querySelectorAll('.topnav-link').forEach(n => n.classList.remove('active'));
-    document.querySelector(`.topnav-link[data-page="${page}"]`)?.classList.add('active');
+    const link = document.querySelector(`.topnav-link[data-page="${page}"]`);
+    if (link) link.classList.add('active');
+    // show page, hide others
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + page)?.classList.add('active');
+    const targetPage = document.getElementById('page-' + page);
+    if (!targetPage) { console.warn('[navigate] page not found: ' + page); return; }
+    targetPage.classList.add('active');
     window.scrollTo(0, 0);
     window.dispatchEvent(new Event('reveal:refresh'));
-    if (page === 'dashboard') { Dashboard.refresh(); }
-    if (page === 'agent') { AgentPanel.refresh(); }
-    if (page === 'markets') { Dashboard.loadMarketPage(); }
-    if (page === 'trades') { Dashboard.loadTrades(); Dashboard.renderTradesStats(); }
-    if (page === 'about') {}
+    // trigger refresh per page
+    switch (page) {
+      case 'dashboard': Dashboard.refresh(); break;
+      case 'agent': AgentPanel.refresh(); break;
+      case 'markets': Dashboard.loadMarketPage(); break;
+      case 'trades': Dashboard.loadTrades(); Dashboard.renderTradesStats(); break;
+      case 'backtest': Backtest.run(true); break;
+      default: break;
+    }
   },
 
   bindToggles() {
@@ -164,17 +264,22 @@ const App = {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       return data;
-    } catch (e) { this.toast(e.message, 'error'); throw e; }
+    } catch (e) {
+      // Don't toast on loading (poll), only on user-initiated actions
+      if (!opts.silent) this.toast(e.message, 'error');
+      throw e;
+    }
   },
+  async apiSilent(path, opts) { return this.api(path, { ...opts, silent: true }); },
 
   async loadHealth() {
-    try { this.state.health = await this.api('/api/health'); this.renderHealthStatus(); } catch {}
+    try { this.state.health = await this.apiSilent('/api/health'); this.renderHealthStatus(); } catch {}
   },
   async loadAccount() {
-    try { this.state.account = await this.api('/api/account'); if (this.state.currentPage === 'dashboard') Dashboard.renderAccount(); } catch {}
+    try { this.state.account = await this.apiSilent('/api/account'); this.state.paperStart = this.state.account?.account?.startBalance || 10000; if (this.state.currentPage === 'dashboard') Dashboard.renderAccount(); } catch {}
   },
   async loadAgentStatus() {
-    try { this.state.agentStatus = await this.api('/api/agent/status'); AgentPanel.renderStatus(); } catch {}
+    try { this.state.agentStatus = await this.apiSilent('/api/agent/status'); AgentPanel.renderStatus(); } catch {}
   },
 
   renderHealthStatus() {
@@ -239,6 +344,28 @@ const App = {
   setSplashStatus(t) { const el = document.getElementById('splashStatus'); if (el) el.textContent = t; },
   hideSplash() { const s = document.getElementById('splash'); if (s) { s.classList.add('hide'); setTimeout(() => s.remove(), 600); } },
 
+  // Magic-UI Number Ticker: count from 0 → target in 700ms + tick animation
+  animateNumber(el, target, opts = {}) {
+    if (!el) return;
+    const decimals = opts.decimals ?? 2;
+    const prefix = opts.prefix ?? '';
+    const suffix = opts.suffix ?? '';
+    const start = parseFloat((el.dataset.last || '0').replace(/[^\d.\-]/g, '')) || 0;
+    const end = +target || 0;
+    if (Math.abs(end - start) < 0.0001) { el.textContent = prefix + end.toFixed(decimals) + suffix; return; }
+    const duration = 600;
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = start + (end - start) * eased;
+      el.textContent = prefix + v.toFixed(decimals) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else { el.textContent = prefix + end.toFixed(decimals) + suffix; el.dataset.last = end; el.classList.add('tick'); setTimeout(() => el.classList.remove('tick'), 500); }
+    };
+    requestAnimationFrame(tick);
+  },
+
   toast(msg, type = 'info') {
     let c = document.getElementById('toastContainer');
     if (!c) { c = document.createElement('div'); c.id = 'toastContainer'; c.className = 'toast-container'; document.body.appendChild(c); }
@@ -251,4 +378,15 @@ const App = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', () => App.init());
+document.addEventListener('DOMContentLoaded', () => {
+  // Always init app (binds nav, sets theme, loads health...)
+  if (!window._appInitialized) { window._appInitialized = true; App.init(); }
+  // hide splash when ready
+  setTimeout(() => { const s = document.getElementById('splash'); if (s) s.classList.add('hide'); }, 2000);
+  // auth gate: if not logged, show login + hide app crust
+  if (window.Auth && !Auth.gate()) {
+    // nothing further — gate() hides app nav already
+  }
+  // Always ensure icon apply
+  window.addEventListener('reveal:refresh', () => window.Icons?.apply?.());
+});

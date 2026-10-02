@@ -1,0 +1,469 @@
+/* ============================================================
+   Magic-UI-Inspired Components — Premium Desktop Trading UI
+   Linear + Arc + Apple + Vercel Design Language
+   ============================================================ */
+
+/* === Fonts (premium display + body + mono) === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+
+:root {
+  --font-sans: 'Inter', 'Manrope', 'SF Pro Display', -apple-system, sans-serif;
+  --font-display: 'Geist', 'Inter', 'SF Pro Display', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', 'SF Mono', monospace;
+}
+
+/* === Animated Grid Background === */
+.animated-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 50% at center, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at center, black, transparent);
+  animation: gridShift 18s linear infinite;
+  pointer-events: none;
+}
+@keyframes gridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 64px 64px; }
+}
+
+/* === Dot Pattern === */
+.dot-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(rgba(120,180,255,0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 60% 50% at center, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at center, black, transparent);
+  pointer-events: none;
+}
+
+/* === Retro Grid (fading) === */
+.retro-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(to bottom, transparent 0%, var(--bg-0, #0B0F17) 100%),
+    linear-gradient(rgba(96,165,250,0.10) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(96,165,250,0.10) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 56px 56px, 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at center, transparent 30%, black 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at center, transparent 30%, black 100%);
+  pointer-events: none;
+}
+
+/* === Border Beam (rotating gradient border) === */
+.border-beam {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.border-beam::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from 0deg, transparent 0%, var(--primary, #3B82F6) 25%, transparent 50%, var(--accent, #06B6D4) 75%, transparent 100%);
+  border-radius: inherit;
+  z-index: -2;
+  animation: beamSpin 4s linear infinite;
+}
+.border-beam::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: var(--bg-cards, rgba(255,255,255,0.05));
+  border-radius: inherit;
+  z-index: -1;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+}
+@keyframes beamSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* === Shimmer (loading) === */
+.shimmer {
+  position: relative;
+  background: linear-gradient(110deg, rgba(255,255,255,0.04) 8%, rgba(255,255,255,0.14) 18%, rgba(255,255,255,0.04) 33%);
+  background-size: 200% 100%;
+  animation: shimmerSlide 1.4s linear infinite;
+}
+@keyframes shimmerSlide {
+  to { background-position: -200% 0; }
+}
+
+/* === Marquee (infinite scroll) === */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+  padding: 12px 0;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  background: var(--bg-glass, rgba(255,255,255,0.06));
+  border: 1px solid var(--border, rgba(255,255,255,0.1));
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary, #fff);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* === Aurora Text (animated gradient text) === */
+.aurora-text {
+  background: linear-gradient(90deg, #3B82F6, #06B6D4, #A78BFA, #EC4899, #3B82F6);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: auroraMove 6s linear infinite;
+}
+@keyframes auroraMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* === Word Rotate (cycling text) === */
+.word-rotate { position: relative; display: inline-block; min-width: 200px; }
+.word-rotate-word {
+  position: absolute;
+  left: 0; top: 0;
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+.word-rotate-word.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* === Blur Fade (scroll blur) === */
+.blur-fade {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s cubic-bezier(0.34,1.56,0.64,1);
+}
+.blur-fade.visible { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+/* === Number Ticker (counting) === */
+.number-ticker {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.number-ticker.tick { animation: numberTick 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes numberTick {
+  0% { transform: translateY(-2px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* === Orbit (rotating circles) === */
+.orbit {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+.orbit-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: var(--grad-primary, linear-gradient(135deg,#3B82F6,#06B6D4));
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 60px rgba(59,130,246,0.45);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: 22px;
+  letter-spacing: 1px;
+  animation: orbitPulse 3s ease-in-out infinite;
+}
+@keyframes orbitPulse {
+  0%, 100% { box-shadow: 0 0 60px rgba(59,130,246,0.45); }
+  50% { box-shadow: 0 0 90px rgba(6,182,212,0.55); }
+}
+.orbit-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(120,180,255,0.25);
+  transform: translate(-50%,-50%);
+}
+.orbit-ring.r1 { width: 160px; height: 160px; animation: orbitSpin 14s linear infinite; }
+.orbit-ring.r2 { width: 240px; height: 240px; animation: orbitSpin 22s linear infinite reverse; border-color: rgba(6,182,212,0.20); }
+.orbit-ring.r3 { width: 320px; height: 320px; animation: orbitSpin 30s linear infinite; border-color: rgba(167,139,250,0.15); }
+.orbit-dot {
+  position: absolute;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--primary, #3B82F6);
+  top: -5px; left: 50%; transform: translateX(-50%);
+  box-shadow: 0 0 16px currentColor;
+}
+.orbit-ring.r2 .orbit-dot { background: var(--accent, #06B6D4); }
+.orbit-ring.r3 .orbit-dot { background: var(--purple, #A78BFA); }
+@keyframes orbitSpin {
+  to { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+/* === Sparkles (twinkling dots) === */
+.sparkle { position: absolute; pointer-events: none; }
+.sparkle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, currentColor, transparent 60%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  animation: sparkleTwinkle 2.4s ease-in-out infinite;
+}
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* === Pulse Dot === */
+.pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green, #22C55E);
+  position: relative;
+  box-shadow: 0 0 12px currentColor;
+}
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: pulseRing 1.6s ease-out infinite;
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* === Glow Card === */
+.glow-card {
+  position: relative;
+  background: var(--bg-cards, rgba(255,255,255,0.05));
+  border: 1px solid var(--border, rgba(255,255,255,0.10));
+  border-radius: var(--r-xl, 24px);
+  padding: 22px;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  overflow: hidden;
+}
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(59,130,246,0.15), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.glow-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--border-glow, rgba(120,180,255,0.35));
+  box-shadow: var(--shadow-float, 0 20px 56px rgba(0,0,0,0.55));
+}
+.glow-card:hover::before { opacity: 1; }
+
+/* === Meteors (shooting particles) === */
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 8px 2px rgba(59,130,246,0.4);
+  pointer-events: none;
+}
+.meteor::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, white, transparent);
+  transform: translateX(-100%);
+}
+
+/* === Flip Card === */
+.flip-card {
+  perspective: 1200px;
+  width: 100%;
+  height: 180px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.34,1.56,0.64,1);
+}
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--r-xl, 24px);
+  padding: 22px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg-cards, rgba(255,255,255,0.05));
+  border: 1px solid var(--border, rgba(255,255,255,0.1));
+  backdrop-filter: blur(28px) saturate(180%);
+}
+.flip-card-face.back { transform: rotateY(180deg); }
+
+/* === Magnetic Hover (CTA) === */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.magnetic:hover { transform: scale(1.04); }
+
+/* === Bento Grid === */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(140px, auto);
+  gap: 16px;
+}
+.bento-grid > * { border-radius: var(--r-xl, 24px); }
+.bento-1 { grid-column: span 1; grid-row: span 1; }
+.bento-2 { grid-column: span 2; grid-row: span 1; }
+.bento-3 { grid-column: span 1; grid-row: span 2; }
+.bento-4 { grid-column: span 2; grid-row: span 2; }
+
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-2, .bento-3, .bento-4 { grid-column: span 2; grid-row: span 1; }
+}
+
+/* === Scroll Bar Premium === */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 6px;
+}
+
+/* === Tilt Card === */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  will-change: transform;
+}
+.tilt-card:hover {
+  transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale3d(1.02, 1.02, 1.02);
+}
+
+/* === Ripple Effect === */
+.ripple { position: relative; overflow: hidden; }
+.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%), rgba(255,255,255,0.18), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.ripple:active::after { opacity: 1; transition: opacity 0s; }
+
+/* === Skeleton === */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.05) 100%);
+  background-size: 200% 100%;
+  animation: skeletonShine 1.6s ease-in-out infinite;
+  border-radius: 8px;
+}
+@keyframes skeletonShine { to { background-position: -200% 0; } }
+
+/* === Progress Bar with Trail === */
+.progress-trail {
+  width: 100%;
+  height: 6px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+  position: relative;
+}
+.progress-trail-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 1s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+.progress-trail-fill::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0;
+  width: 12px; height: 100%;
+  background: white;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.8);
+  animation: progressGlow 1.4s ease-in-out infinite;
+}
+@keyframes progressGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* === Spotlight (cursor spotlight on card) === */
+.spotlight {
+  position: relative;
+  background: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 50%), rgba(59,130,246,0.08), transparent 80%), var(--bg-cards, rgba(255,255,255,0.05));
+  border: 1px solid var(--border, rgba(255,255,255,0.1));
+  border-radius: var(--r-xl, 24px);
+  transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.spotlight:hover {
+  border-color: rgba(59,130,246,0.45);
+  transform: translateY(-4px);
+}
+
+/* === Hero Buttons (shimmer on hover) === */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transition: left 0.6s ease;
+}
+.btn-shimmer:hover::before { left: 100%; }
+
+/* === Animated Numbers (counter) === */
+.counter { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+/* === Light-mode tweaks === */
+[data-theme="light"] .animated-grid { background-image: linear-gradient(rgba(15,40,80,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(15,40,80,0.06) 1px, transparent 1px); }
+[data-theme="light"] .dot-pattern { background-image: radial-gradient(rgba(15,40,80,0.18) 1px, transparent 1px); }

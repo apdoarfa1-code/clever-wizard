@@ -8,8 +8,9 @@ const Settings = {
   bindSections() {
     document.querySelectorAll('.settings-section-header').forEach(h => {
       h.addEventListener('click', () => {
-        const b = h.nextElementSibling;
-        h.classList.toggle('open'); b?.classList.toggle('open');
+        const section = h.parentElement; // .settings-section
+        const body = section.querySelector('.settings-section-body');
+        section.classList.toggle('open');
       });
     });
   },

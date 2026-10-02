@@ -1,0 +1,10 @@
+{
+  "running": false,
+  "lastRun": null,
+  "dailyPnl": 0,
+  "dailyPnlDate": null,
+  "openCount": 0,
+  "consecutiveLosses": 0,
+  "cooldownUntil": 0,
+  "peakEquity": 10000
+}

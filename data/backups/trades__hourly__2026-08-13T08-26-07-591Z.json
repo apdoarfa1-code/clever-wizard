@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "price": 3000,
+    "qty": 1,
+    "status": "open",
+    "id": "T1786119989784942",
+    "createdAt": "2026-08-07T16:26:29.784Z"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "price": 60000,
+    "qty": 0.1,
+    "status": "open",
+    "id": "T1786119989783968",
+    "createdAt": "2026-08-07T16:26:29.783Z"
+  }
+]

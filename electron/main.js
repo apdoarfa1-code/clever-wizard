@@ -10,7 +10,29 @@ const { spawn } = require('child_process');
 const http = require('http');
 
 const ROOT = path.resolve(__dirname, '..');
-const PORT = 8087;
+
+// Read PORT from settings.json (fallback to 8087)
+let PORT = 8087;
+try {
+  const fs = require('fs');
+  const settingsPath = path.join(ROOT, 'settings.json');
+  if (fs.existsSync(settingsPath)) {
+    const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+    if (settings.PORT) PORT = +settings.PORT || PORT;
+  }
+} catch (e) { console.warn('[electron] settings read failed:', e.message); }
+
+// Read AGENT_AUTORUN from settings.json
+let AUTORUN = 'false';
+try {
+  const fs2 = require('fs');
+  const settingsPath = path.join(ROOT, 'settings.json');
+  if (fs2.existsSync(settingsPath)) {
+    const settings = JSON.parse(fs2.readFileSync(settingsPath, 'utf8'));
+    if (settings.AGENT_AUTORUN) AUTORUN = String(settings.AGENT_AUTORUN);
+  }
+} catch (e) {}
+
 const URL = `http://127.0.0.1:${PORT}`;
 
 let mainWindow = null;
@@ -51,7 +73,7 @@ function startInternalServer() {
       PORT: String(PORT),
       HOST: '127.0.0.1',
       OPEN_BROWSER: 'false',
-      AGENT_AUTORUN: 'false',
+      AGENT_AUTORUN: AUTORUN,
     };
     try {
       serverProc = spawn(process.execPath, [path.join(ROOT, 'server.js')], {
@@ -181,6 +203,20 @@ if (!gotLock) {
   });
 
   app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+    // kill subprocess before quitting (linux/mac/windows all)
+    if (serverProc && !serverProc.killed) {
+      try { serverProc.kill('SIGTERM'); } catch {}
+    }
+    // macOS: don't quit immediately — user can re-open
+    if (process.platform !== 'darwin') {
+      isQuiting = true;
+      app.quit();
+    }
+  });
+  app.on('quit', () => {
+    isQuiting = true;
+    if (serverProc && !serverProc.killed) {
+      try { serverProc.kill('SIGTERM'); } catch {}
+    }
   });
 }

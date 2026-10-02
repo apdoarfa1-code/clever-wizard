@@ -1,17 +1,13 @@
 [Desktop Entry]
 Name=AI Trading Agent
 Name[ar]=وكيل التداول الذكي
-Comment=AI-Powered Trading Bot — Professional Desktop App
-Comment[ar]=بوت تداول بالذكاء الاصطناعي — تطبيق ديسكتوب احترافي
-Exec=sh -c "cd '/home/apdo/Desktop/x egant' && (npm --silent start 2>/dev/null || bash desktop/launch.sh)"
+Comment=AI-Powered Trading Bot
+Comment[ar]=بوت تداول بالذكاء الاصطناعي
+Exec=sh -c "cd '/home/apdo/Desktop/x egant/desktop' && bash launch.sh"
 Icon=/home/apdo/Desktop/x egant/desktop/icons/icon.png
 Terminal=false
 Type=Application
-Categories=Finance;Network;Office;GTK;
+Categories=Finance;Network;Office;
 StartupNotify=true
 StartupWMClass=AI Trading Agent
 Keywords=trading;ai;bot;crypto;forex;تداول;ذكاء;
-Path=/home/apdo/Desktop/x egant
-TryExec=/usr/bin/npm
-X-GNOME-Autostart-enabled=false
-X-KDE-autostart-condition=Desktop Entry

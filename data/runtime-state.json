@@ -1,0 +1,78 @@
+{
+  "ts": 1787132315889,
+  "appState": "READY",
+  "heartbeats": {
+    "watchdog": {
+      "lastBeat": 1787129572430,
+      "beats": 2,
+      "healthy": true
+    },
+    "server": {
+      "lastBeat": 1787129571823,
+      "beats": 1,
+      "healthy": false
+    },
+    "market": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "store": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "scanEngine": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "validator": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "execution": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "queue": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "risk": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "health": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "routes": {
+      "lastBeat": 1787132315844,
+      "beats": 271,
+      "healthy": true
+    },
+    "validation": {
+      "lastBeat": 1787129572438,
+      "beats": 1,
+      "healthy": true
+    }
+  },
+  "emergencyMode": false,
+  "safeMode": false,
+  "openPositions": [],
+  "agentStatus": {
+    "running": false,
+    "lastRun": null,
+    "dailyPnl": 0,
+    "openCount": 0,
+    "consecutiveLosses": 0,
+    "cooldownUntil": 0,
+    "peakEquity": 10000
+  }
+}

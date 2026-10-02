@@ -1,0 +1,105 @@
+/* ============================================================
+   App-specific Premium UI Extensions
+   ============================================================ */
+
+.hero-section {
+  position: relative;
+  padding: 36px 0 24px;
+  text-align: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.hero-bg-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0.06;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-bg-text span {
+  font-family: var(--font-display, 'Geist');
+  font-size: clamp(60px, 9vw, 120px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  line-height: 1;
+  user-select: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(34,197,94,0.10);
+  border: 1px solid rgba(34,197,94,0.30);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #22C55E;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-display, 'Geist');
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--text-primary, #fff);
+  min-height: 1.2em;
+}
+
+.hero-title .word-rotate-word {
+  background: linear-gradient(120deg, var(--text-primary), var(--secondary), var(--accent));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: auroraMove 5s linear infinite;
+}
+
+.hero-sub {
+  font-size: 14px;
+  color: var(--text-secondary, #94A3B8);
+  margin-top: 12px;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+
+.mt-12 { margin-top: 12px; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* Bento live card with ticker trail */
+.bento-grid { margin-bottom: 20px; }
+
+/* Footer minimal */
+.app-footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 11px;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+  letter-spacing: 0.4px;
+}
+
+.app-footer span { color: var(--secondary); font-weight: 600; }
+
+/* Auth page gradient bg */
+.login-page {
+  background: radial-gradient(ellipse 70% 50% at center, rgba(59,130,246,0.15), transparent 70%);
+}

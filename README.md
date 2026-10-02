@@ -109,13 +109,14 @@ sudo apt-get install -y nodejs
 ```bash
 # إنشاء repo + رفع
 git init
-git add .
-git commit -m "AI Trading Agent v1"
-gh repo create ai-trading-agent --public --source=. --push
+    git add .
+    git commit -m "AI Trading Agent v1"
+    gh repo create ai-trading-agent --public --source=. --push
 
-# نشر على Vercel
-npx vercel
-# أضف Environment Variables من Vercel Dashboard
+    # نشر على Vercel
+    npx vercel --prod
+    # أضف Environment Variables من Vercel Dashboard
+
 ```
 
 ## ⚠️ تنبيه

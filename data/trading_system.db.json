@@ -1,0 +1,230 @@
+{
+  "tables": {
+    "brokers": [],
+    "accounts": [
+      {
+        "id": "paper_main",
+        "account_name": "Paper Trading",
+        "currency": "USDT",
+        "balance": 10000,
+        "available": 10000,
+        "created_at": "2026-08-08T07:05:02.912Z"
+      }
+    ],
+    "balances": [],
+    "symbols": [],
+    "market_data": [],
+    "signals": [],
+    "ai_decisions": [],
+    "orders": [],
+    "order_events": [],
+    "fills": [],
+    "positions": [],
+    "trades": [
+      {
+        "id": "R_1786172702919_4912",
+        "symbol": "BTCUSDT",
+        "side": "long",
+        "price": 65000,
+        "qty": 0.2,
+        "close_price": null,
+        "pnl": null,
+        "sl": null,
+        "tp": null,
+        "status": "open",
+        "broker": "paper",
+        "close_reason": null,
+        "created_at": "2026-08-08T07:05:02.919Z"
+      },
+      {
+        "id": "T1786119989784942",
+        "symbol": "ETHUSDT",
+        "side": "long",
+        "action": "BUY",
+        "price": 3000,
+        "qty": 1,
+        "close_price": null,
+        "pnl": null,
+        "sl": null,
+        "tp": null,
+        "status": "open",
+        "broker": "paper",
+        "close_reason": null,
+        "created_at": "2026-08-07T16:26:29.784Z",
+        "updated_at": "2026-08-08T07:05:02.605Z"
+      },
+      {
+        "id": "T1786119989783968",
+        "symbol": "BTCUSDT",
+        "side": "long",
+        "action": "BUY",
+        "price": 60000,
+        "qty": 0.1,
+        "close_price": null,
+        "pnl": null,
+        "sl": null,
+        "tp": null,
+        "status": "open",
+        "broker": "paper",
+        "close_reason": null,
+        "created_at": "2026-08-07T16:26:29.783Z",
+        "updated_at": "2026-08-08T07:05:02.605Z"
+      }
+    ],
+    "risk_events": [],
+    "risk_snapshots": [],
+    "performance": [],
+    "metrics": [],
+    "system_events": [
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\"}",
+        "id": "R_1786533600252_3266",
+        "created_at": "2026-08-12T11:20:00.270Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\"}",
+        "id": "R_1786530000475_8665",
+        "created_at": "2026-08-12T10:20:00.476Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\"}",
+        "id": "R_1786526398256_1877",
+        "created_at": "2026-08-12T09:19:58.256Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1786172010853}",
+        "created_at": "2026-08-08T06:53:30.853Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1786172002203}",
+        "created_at": "2026-08-08T06:53:22.203Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1786120169877}",
+        "created_at": "2026-08-07T16:29:29.877Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1786120168654}",
+        "created_at": "2026-08-07T16:29:28.654Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1786110647159}",
+        "created_at": "2026-08-07T13:50:47.159Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1786105126272}",
+        "created_at": "2026-08-07T12:18:46.272Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1786101525653}",
+        "created_at": "2026-08-07T11:18:45.653Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1785994727346}",
+        "created_at": "2026-08-06T05:38:47.346Z"
+      },
+      {
+        "level": "info",
+        "message": "stress-test-marker",
+        "details": "{\"type\":\"stress_test\",\"level\":\"info\",\"msg\":\"stress-test-marker\",\"t\":1785993862750}",
+        "created_at": "2026-08-06T05:24:22.750Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1785993454666}",
+        "created_at": "2026-08-06T05:17:34.666Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1785988817109}",
+        "created_at": "2026-08-06T04:00:17.109Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1785988114652}",
+        "created_at": "2026-08-06T03:48:34.652Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1785823873354}",
+        "created_at": "2026-08-04T06:11:13.354Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1785823521653}",
+        "created_at": "2026-08-04T06:05:21.653Z"
+      },
+      {
+        "level": "info",
+        "message": "DB integrity OK",
+        "details": "{\"type\":\"system\",\"level\":\"info\",\"msg\":\"DB integrity OK\",\"t\":1785819696907}",
+        "created_at": "2026-08-04T05:01:36.907Z"
+      },
+      {
+        "level": "error",
+        "message": "uncaughtException: listen EADDRINUSE: address already in use 127.0.0.1:8090",
+        "details": "{\"type\":\"system\",\"level\":\"error\",\"msg\":\"uncaughtException: listen EADDRINUSE: address already in use 127.0.0.1:8090\",\"t\":1785814406335}",
+        "created_at": "2026-08-04T03:33:26.335Z"
+      }
+    ],
+    "audit_logs": [
+      {
+        "module": "SYSTEM",
+        "action": "stress-test-marker",
+        "severity": "INFO",
+        "id": "R_1786533600271_7622",
+        "created_at": "2026-08-12T11:20:00.271Z"
+      },
+      {
+        "module": "SYSTEM",
+        "action": "stress-test-marker",
+        "severity": "INFO",
+        "id": "R_1786530000501_1640",
+        "created_at": "2026-08-12T10:20:00.502Z"
+      },
+      {
+        "module": "SYSTEM",
+        "action": "DB integrity OK",
+        "severity": "INFO",
+        "id": "R_1786526398269_3828",
+        "created_at": "2026-08-12T09:19:58.269Z"
+      }
+    ],
+    "notifications": [],
+    "telegram_events": [],
+    "runtime_state": [],
+    "worker_state": [],
+    "backups": []
+  },
+  "meta": {
+    "version": 1,
+    "created_at": "2026-08-08T07:05:02.111Z"
+  }
+}
