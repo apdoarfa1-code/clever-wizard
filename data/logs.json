@@ -1,0 +1,1280 @@
+[
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86890 qty=0.002298 SL=86021.100 TP=88627.800 (779ms)",
+    "t": 1790945767841
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86890 qty=0.002298",
+    "t": 1790945767838
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945767026
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=-0.03",
+    "t": 1790945767019
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=-0.03",
+    "t": 1790945767016
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.01",
+    "t": 1790945764712
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.01",
+    "t": 1790945764669
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (8000ms) — 3 أزواج",
+    "t": 1790945764390
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.47 qty=1.626638 SL=121.245 TP=124.919 (801ms)",
+    "t": 1790945764352
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.46 qty=1.626638",
+    "t": 1790945764349
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945763548
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2756.88 qty=0.072261 SL=2729.311 TP=2812.018 (584ms)",
+    "t": 1790945761685
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2756.88 qty=0.072261",
+    "t": 1790945761683
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=-0.02",
+    "t": 1790945761599
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=-0.02",
+    "t": 1790945761595
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945761097
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86876.27 qty=0.002293 SL=86007.507 TP=88613.795 (1121ms)",
+    "t": 1790945759335
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86876.28 qty=0.002293",
+    "t": 1790945759331
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.05",
+    "t": 1790945759049
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.05",
+    "t": 1790945759027
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945758211
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.07",
+    "t": 1790945756583
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.07",
+    "t": 1790945756563
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7392ms) — 3 أزواج",
+    "t": 1790945756280
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.5 qty=1.626221 SL=121.275 TP=124.950 (737ms)",
+    "t": 1790945756275
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.49 qty=1.626221",
+    "t": 1790945756270
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945755532
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.05",
+    "t": 1790945753904
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.05",
+    "t": 1790945753903
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2756.13 qty=0.072292 SL=2728.569 TP=2811.253 (713ms)",
+    "t": 1790945753701
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2756.13 qty=0.072292",
+    "t": 1790945753700
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945752986
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.03",
+    "t": 1790945751629
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.03",
+    "t": 1790945751593
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86839.73 qty=0.002294 SL=85971.333 TP=88576.525 (690ms)",
+    "t": 1790945751230
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86844.01 qty=0.002294",
+    "t": 1790945751227
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945750534
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=-0.00",
+    "t": 1790945749132
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=-0.00",
+    "t": 1790945749108
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7217ms) — 3 أزواج",
+    "t": 1790945748603
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.44 qty=1.627007 SL=121.216 TP=124.889 (614ms)",
+    "t": 1790945748586
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.44 qty=1.627007",
+    "t": 1790945748583
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945747969
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.00",
+    "t": 1790945746662
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.00",
+    "t": 1790945746647
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2755.11 qty=0.072294 SL=2727.559 TP=2810.212 (687ms)",
+    "t": 1790945746305
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2755.28 qty=0.072294",
+    "t": 1790945746303
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945745615
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=-0.01",
+    "t": 1790945744236
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=-0.01",
+    "t": 1790945744226
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86840.01 qty=0.002294 SL=85971.610 TP=88576.810 (818ms)",
+    "t": 1790945743774
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86840.01 qty=0.002294",
+    "t": 1790945743770
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945742952
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=-0.00",
+    "t": 1790945741913
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=-0.00",
+    "t": 1790945741898
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7512ms) — 3 أزواج",
+    "t": 1790945741319
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.44 qty=1.62673 SL=121.216 TP=124.889 (615ms)",
+    "t": 1790945741312
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.44 qty=1.62673",
+    "t": 1790945741310
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945740694
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2754.99 qty=0.072453 SL=2727.440 TP=2810.090 (630ms)",
+    "t": 1790945738868
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2754.99 qty=0.072453",
+    "t": 1790945738862
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945738232
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.00",
+    "t": 1790945737864
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.00",
+    "t": 1790945737837
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86840.25 qty=0.002299 SL=85971.848 TP=88577.055 (617ms)",
+    "t": 1790945736612
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86840.25 qty=0.002299",
+    "t": 1790945736608
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945735992
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=-0.01",
+    "t": 1790945735213
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=-0.01",
+    "t": 1790945735154
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7674ms) — 3 أزواج",
+    "t": 1790945732479
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.45 qty=1.626892 SL=121.225 TP=124.899 (677ms)",
+    "t": 1790945732475
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.45 qty=1.626892",
+    "t": 1790945732437
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=-0.08",
+    "t": 1790945732433
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=-0.08",
+    "t": 1790945732407
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945731795
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2755.25 qty=0.072286 SL=2727.697 TP=2810.355 (847ms)",
+    "t": 1790945729862
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2755.25 qty=0.072286",
+    "t": 1790945729787
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=-0.03",
+    "t": 1790945729783
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=-0.03",
+    "t": 1790945729740
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945729010
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.10",
+    "t": 1790945727483
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.10",
+    "t": 1790945727481
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86875.67 qty=0.002293 SL=86006.913 TP=88613.183 (595ms)",
+    "t": 1790945727062
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86875.67 qty=0.002293",
+    "t": 1790945727061
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945726465
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.08",
+    "t": 1790945725046
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.08",
+    "t": 1790945725033
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7116ms) — 3 أزواج",
+    "t": 1790945724393
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.47 qty=1.626867 SL=121.245 TP=124.919 (568ms)",
+    "t": 1790945724375
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.47 qty=1.626867",
+    "t": 1790945724375
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945723807
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2754.55 qty=0.072329 SL=2727.005 TP=2809.641 (701ms)",
+    "t": 1790945722071
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2754.55 qty=0.072329",
+    "t": 1790945722069
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.02",
+    "t": 1790945721802
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.02",
+    "t": 1790945721760
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945721369
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86839.72 qty=0.002294 SL=85971.323 TP=88576.514 (812ms)",
+    "t": 1790945719716
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86839.72 qty=0.002294",
+    "t": 1790945719715
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.00",
+    "t": 1790945718924
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.00",
+    "t": 1790945718912
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945718903
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (8190ms) — 3 أزواج",
+    "t": 1790945716463
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.44 qty=1.627127 SL=121.216 TP=124.889 (609ms)",
+    "t": 1790945716434
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.44 qty=1.627127",
+    "t": 1790945716433
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.02",
+    "t": 1790945716157
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.02",
+    "t": 1790945716129
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945715824
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2754.2 qty=0.07232 SL=2726.658 TP=2809.284 (705ms)",
+    "t": 1790945713609
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2754.2 qty=0.07232",
+    "t": 1790945713595
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.00",
+    "t": 1790945713150
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.00",
+    "t": 1790945713134
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945712903
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86831.87 qty=0.002295 SL=85963.551 TP=88568.507 (645ms)",
+    "t": 1790945710840
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86831.87 qty=0.002295",
+    "t": 1790945710815
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.01",
+    "t": 1790945710812
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.01",
+    "t": 1790945710806
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945710194
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (8567ms) — 3 أزواج",
+    "t": 1790945707839
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.43 qty=1.627111 SL=121.206 TP=124.879 (692ms)",
+    "t": 1790945707835
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.43 qty=1.627111",
+    "t": 1790945707834
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.05",
+    "t": 1790945707618
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.05",
+    "t": 1790945707569
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945707141
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2753.99 qty=0.072479 SL=2726.450 TP=2809.070 (673ms)",
+    "t": 1790945705453
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2754.45 qty=0.072479",
+    "t": 1790945705452
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945704778
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.03",
+    "t": 1790945704473
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.03",
+    "t": 1790945704413
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.05",
+    "t": 1790945702428
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.05",
+    "t": 1790945702372
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86796 qty=0.002295 SL=85928.040 TP=88531.920 (624ms)",
+    "t": 1790945702066
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86796 qty=0.002295",
+    "t": 1790945702065
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945701440
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.01",
+    "t": 1790945699976
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.01",
+    "t": 1790945699850
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7371ms) — 3 أزواج",
+    "t": 1790945699138
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.39 qty=1.627496 SL=121.166 TP=124.838 (606ms)",
+    "t": 1790945699130
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.4 qty=1.627496",
+    "t": 1790945699129
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945698522
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=-0.02",
+    "t": 1790945696721
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=-0.02",
+    "t": 1790945696696
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2753 qty=0.07236 SL=2725.470 TP=2808.060 (609ms)",
+    "t": 1790945696673
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2753 qty=0.07236",
+    "t": 1790945696672
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945696062
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86787.27 qty=0.0023 SL=85919.397 TP=88523.015 (701ms)",
+    "t": 1790945694511
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86787.27 qty=0.0023",
+    "t": 1790945694511
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945693809
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت ETHUSDT بعد 5s بقيمة PnL=0.02",
+    "t": 1790945693612
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق ETHUSDT PnL=0.02",
+    "t": 1790945693601
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (8660ms) — 3 أزواج",
+    "t": 1790945691423
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.4 qty=1.627495 SL=121.176 TP=124.848 (695ms)",
+    "t": 1790945691406
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.4 qty=1.627495",
+    "t": 1790945691405
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.00",
+    "t": 1790945690979
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.00",
+    "t": 1790945690964
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945690710
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.05",
+    "t": 1790945688315
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.05",
+    "t": 1790945688305
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY ETHUSDT @ 2752.7 qty=0.07237 SL=2725.173 TP=2807.754 (873ms)",
+    "t": 1790945688090
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long ETHUSDT @ 2752.7 qty=0.07237",
+    "t": 1790945688089
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945687216
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86787.26 qty=0.0023 SL=85919.387 TP=88523.005 (752ms)",
+    "t": 1790945685619
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86787.26 qty=0.0023",
+    "t": 1790945685617
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945684867
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.04",
+    "t": 1790945682130
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.04",
+    "t": 1790945682103
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (8267ms) — 3 أزواج",
+    "t": 1790945682027
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.37 qty=1.631135 SL=121.146 TP=124.817 (925ms)",
+    "t": 1790945681994
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.37 qty=1.631135",
+    "t": 1790945681993
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945681067
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.02",
+    "t": 1790945679349
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.02",
+    "t": 1790945679201
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "↩ HOLD على ETHUSDT (no_confluence)",
+    "t": 1790945678616
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945678537
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86768.01 qty=0.002301 SL=85900.330 TP=88503.370 (705ms)",
+    "t": 1790945676528
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86768 qty=0.002301",
+    "t": 1790945676527
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945675822
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.02",
+    "t": 1790945674066
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.02",
+    "t": 1790945674065
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (7056ms) — 3 أزواج",
+    "t": 1790945673311
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.37 qty=1.631663 SL=121.146 TP=124.817 (1337ms)",
+    "t": 1790945673282
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.36 qty=1.631663",
+    "t": 1790945673281
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945671943
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت SOLUSDT بعد 5s بقيمة PnL=0.02",
+    "t": 1790945670925
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق SOLUSDT PnL=0.02",
+    "t": 1790945670879
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "↩ HOLD على ETHUSDT (no_confluence)",
+    "t": 1790945670260
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945670260
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86750 qty=0.002301 SL=85882.500 TP=88485.000 (718ms)",
+    "t": 1790945668628
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86750 qty=0.002301",
+    "t": 1790945668626
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945667907
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=-0.00",
+    "t": 1790945666889
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=-0.00",
+    "t": 1790945666887
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (6785ms) — 3 أزواج",
+    "t": 1790945665539
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY SOLUSDT @ 122.32 qty=1.631654 SL=121.097 TP=124.766 (627ms)",
+    "t": 1790945665532
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long SOLUSDT @ 122.32 qty=1.631654",
+    "t": 1790945665531
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945664903
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "↩ HOLD على ETHUSDT (no_confluence)",
+    "t": 1790945663095
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945663093
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86750 qty=0.002305 SL=85882.500 TP=88485.000 (725ms)",
+    "t": 1790945661266
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86750.01 qty=0.002305",
+    "t": 1790945661264
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945660539
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "✕ SCALP أُغلقت BTCUSDT بعد 5s بقيمة PnL=0.01",
+    "t": 1790945659870
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "إغلاق BTCUSDT PnL=0.01",
+    "t": 1790945659869
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🏁 دورة (6887ms) — 3 أزواج",
+    "t": 1790945657983
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "↩ HOLD على SOLUSDT (no_confluence)",
+    "t": 1790945657981
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945657979
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "↩ HOLD على ETHUSDT (no_confluence)",
+    "t": 1790945656033
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945656032
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ SCALP BUY BTCUSDT @ 86746 qty=0.002306 SL=85878.540 TP=88480.920 (698ms)",
+    "t": 1790945654081
+  },
+  {
+    "type": "paper_trade",
+    "level": "info",
+    "msg": "فتح long BTCUSDT @ 86746 qty=0.002306",
+    "t": 1790945654080
+  },
+  {
+    "type": "ai",
+    "level": "warn",
+    "msg": "AI غير متاح: AI_API_KEY غير مضبوط — ضع مفتاح API في الإعدادات — يتم استخدام تحليل multi-TF فقط",
+    "t": 1790945653377
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "🚀 حلقة بدأت (loop=60s)",
+    "t": 1790945649592
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⚡ tick loop بدأت (1500ms)",
+    "t": 1790945649592
+  },
+  {
+    "type": "agent",
+    "level": "info",
+    "msg": "⏹ توقف",
+    "t": 1790945649591
+  }
+]

@@ -1,0 +1,1292 @@
+[
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.92,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:56:06.705Z",
+    "id": "D1790945766706",
+    "createdAt": "2026-10-02T12:56:06.706Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:56:03.134Z",
+    "id": "D1790945763135",
+    "createdAt": "2026-10-02T12:56:03.135Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.95,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:56:00.767Z",
+    "id": "D1790945760769",
+    "createdAt": "2026-10-02T12:56:00.769Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.95,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:57.896Z",
+    "id": "D1790945757898",
+    "createdAt": "2026-10-02T12:55:57.898Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:55.134Z",
+    "id": "D1790945755136",
+    "createdAt": "2026-10-02T12:55:55.136Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:52.584Z",
+    "id": "D1790945752586",
+    "createdAt": "2026-10-02T12:55:52.586Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:50.116Z",
+    "id": "D1790945750117",
+    "createdAt": "2026-10-02T12:55:50.117Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:47.656Z",
+    "id": "D1790945747657",
+    "createdAt": "2026-10-02T12:55:47.657Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:45.234Z",
+    "id": "D1790945745235",
+    "createdAt": "2026-10-02T12:55:45.235Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:42.645Z",
+    "id": "D1790945742648",
+    "createdAt": "2026-10-02T12:55:42.648Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:40.390Z",
+    "id": "D1790945740391",
+    "createdAt": "2026-10-02T12:55:40.391Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:37.916Z",
+    "id": "D1790945737918",
+    "createdAt": "2026-10-02T12:55:37.918Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:35.578Z",
+    "id": "D1790945735579",
+    "createdAt": "2026-10-02T12:55:35.579Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:31.385Z",
+    "id": "D1790945731387",
+    "createdAt": "2026-10-02T12:55:31.387Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:28.514Z",
+    "id": "D1790945728515",
+    "createdAt": "2026-10-02T12:55:28.515Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.95,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:26.158Z",
+    "id": "D1790945726159",
+    "createdAt": "2026-10-02T12:55:26.159Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:23.499Z",
+    "id": "D1790945723499",
+    "createdAt": "2026-10-02T12:55:23.499Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.737,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:21.038Z",
+    "id": "D1790945721039",
+    "createdAt": "2026-10-02T12:55:21.039Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:18.581Z",
+    "id": "D1790945718581",
+    "createdAt": "2026-10-02T12:55:18.581Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:15.509Z",
+    "id": "D1790945715510",
+    "createdAt": "2026-10-02T12:55:15.510Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.89,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:12.134Z",
+    "id": "D1790945712134",
+    "createdAt": "2026-10-02T12:55:12.134Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:09.884Z",
+    "id": "D1790945709884",
+    "createdAt": "2026-10-02T12:55:09.884Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.837,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.86,
+        "score": 4.3
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:06.838Z",
+    "id": "D1790945706838",
+    "createdAt": "2026-10-02T12:55:06.838Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.737,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:04.196Z",
+    "id": "D1790945704197",
+    "createdAt": "2026-10-02T12:55:04.197Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.77,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:55:00.687Z",
+    "id": "D1790945700687",
+    "createdAt": "2026-10-02T12:55:00.687Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.9,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:58.212Z",
+    "id": "D1790945698212",
+    "createdAt": "2026-10-02T12:54:58.212Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.617,
+    "reasoning": "multi-TF confluence (2/3) — computed:BUY, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.34,
+        "score": 1.7
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:55.752Z",
+    "id": "D1790945695753",
+    "createdAt": "2026-10-02T12:54:55.753Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.77,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:53.328Z",
+    "id": "D1790945693329",
+    "createdAt": "2026-10-02T12:54:53.329Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.9,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:50.128Z",
+    "id": "D1790945690128",
+    "createdAt": "2026-10-02T12:54:50.128Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "ETHUSDT",
+    "side": "long",
+    "confidence": 0.617,
+    "reasoning": "multi-TF confluence (2/3) — computed:BUY, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.34,
+        "score": 1.7
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:46.893Z",
+    "id": "D1790945686893",
+    "createdAt": "2026-10-02T12:54:46.893Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.77,
+    "reasoning": "multi-TF confluence (3/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:44.496Z",
+    "id": "D1790945684496",
+    "createdAt": "2026-10-02T12:54:44.496Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.67,
+    "reasoning": "multi-TF confluence (2/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.5,
+        "score": 2.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:40.703Z",
+    "id": "D1790945680703",
+    "createdAt": "2026-10-02T12:54:40.703Z"
+  },
+  {
+    "action": "HOLD",
+    "symbol": "ETHUSDT",
+    "side": "none",
+    "confidence": 0.563,
+    "reasoning": "multi-TF confluence (1/3) — computed:HOLD, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.34,
+        "score": 1.7
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:37.966Z",
+    "id": "D1790945677966",
+    "createdAt": "2026-10-02T12:54:37.966Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.717,
+    "reasoning": "multi-TF confluence (2/3) — computed:HOLD, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:35.487Z",
+    "id": "D1790945675487",
+    "createdAt": "2026-10-02T12:54:35.487Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.67,
+    "reasoning": "multi-TF confluence (2/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.5,
+        "score": 2.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:31.592Z",
+    "id": "D1790945671593",
+    "createdAt": "2026-10-02T12:54:31.593Z"
+  },
+  {
+    "action": "HOLD",
+    "symbol": "ETHUSDT",
+    "side": "none",
+    "confidence": 0.467,
+    "reasoning": "multi-TF confluence (1/3) — computed:HOLD, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.34,
+        "score": 1.7
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.66,
+        "score": 3.3
+      }
+    ],
+    "triggered": "2026-10-02T12:54:29.951Z",
+    "id": "D1790945669952",
+    "createdAt": "2026-10-02T12:54:29.952Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.717,
+    "reasoning": "multi-TF confluence (2/3) — computed:HOLD, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:27.598Z",
+    "id": "D1790945667598",
+    "createdAt": "2026-10-02T12:54:27.598Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "SOLUSDT",
+    "side": "long",
+    "confidence": 0.67,
+    "reasoning": "multi-TF confluence (2/3) — computed:BUY, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.56,
+        "score": 2.8
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.5,
+        "score": 2.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:24.590Z",
+    "id": "D1790945664597",
+    "createdAt": "2026-10-02T12:54:24.597Z"
+  },
+  {
+    "action": "HOLD",
+    "symbol": "ETHUSDT",
+    "side": "none",
+    "confidence": 0.563,
+    "reasoning": "multi-TF confluence (1/3) — computed:HOLD, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.34,
+        "score": 1.7
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:22.697Z",
+    "id": "D1790945662700",
+    "createdAt": "2026-10-02T12:54:22.700Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.717,
+    "reasoning": "multi-TF confluence (2/3) — computed:HOLD, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.8,
+        "score": 4
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:20.121Z",
+    "id": "D1790945660122",
+    "createdAt": "2026-10-02T12:54:20.122Z"
+  },
+  {
+    "action": "HOLD",
+    "symbol": "SOLUSDT",
+    "side": "none",
+    "confidence": 0.583,
+    "reasoning": "multi-TF confluence (1/3) — computed:HOLD, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:17.565Z",
+    "id": "D1790945657566",
+    "createdAt": "2026-10-02T12:54:17.566Z"
+  },
+  {
+    "action": "HOLD",
+    "symbol": "ETHUSDT",
+    "side": "none",
+    "confidence": 0.367,
+    "reasoning": "multi-TF confluence (1/3) — computed:HOLD, computed:HOLD, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.1,
+        "score": 0.5
+      },
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.34,
+        "score": 1.7
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.66,
+        "score": 3.3
+      }
+    ],
+    "triggered": "2026-10-02T12:54:15.619Z",
+    "id": "D1790945655619",
+    "createdAt": "2026-10-02T12:54:15.619Z"
+  },
+  {
+    "action": "BUY",
+    "symbol": "BTCUSDT",
+    "side": "long",
+    "confidence": 0.683,
+    "reasoning": "multi-TF confluence (2/3) — computed:HOLD, computed:BUY, computed:BUY",
+    "timeframeConfluence": [
+      {
+        "tf": "computed",
+        "action": "HOLD",
+        "confidence": 0.4,
+        "score": 2
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.7,
+        "score": 3.5
+      },
+      {
+        "tf": "computed",
+        "action": "BUY",
+        "confidence": 0.95,
+        "score": 4.8
+      }
+    ],
+    "triggered": "2026-10-02T12:54:12.958Z",
+    "id": "D1790945652959",
+    "createdAt": "2026-10-02T12:54:12.959Z"
+  }
+]
